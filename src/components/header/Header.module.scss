@@ -1,0 +1,11 @@
+.root {
+  width: 100vw;
+  // height: 200px;
+  .container {
+    background: darksalmon;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 100px;
+  }
+}

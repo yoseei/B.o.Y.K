@@ -1,0 +1,41 @@
+.body_container {
+  width: 300px;
+  height: 150px;
+  background-color: aliceblue;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  border-radius: 10px;
+  flex-direction: column;
+
+  .confirm_wrapper,
+  .delete_wrapper,
+  .cancel_wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+  }
+  .confirm_wrapper {
+    .confirm {
+      font-weight: 500;
+    }
+  }
+  .delete_wrapper {
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    width: 100%;
+    .delete {
+      color: rgb(247, 91, 91);
+      margin: 0 auto;
+      cursor: pointer;
+    }
+  }
+  .cancel_wrapper {
+    .cancel {
+      cursor: pointer;
+    }
+  }
+}
