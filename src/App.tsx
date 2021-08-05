@@ -8,18 +8,23 @@ import PostsDetail from "./components/main/PostsDetail";
 import PostsEdit from "./components/main/PostsEdit";
 import DeleteModal from "./components/UIKit/DeleteModal";
 import BlogList from "./features/blog/blogList/BlogList";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
+
 function App() {
   return (
     <div className={scss.root}>
       <Header />
       <div className={scss.main}>
-        <BlogForm />
-        {/* <BlogList /> */}
-        {/* <PostsList /> */}
-        {/* <PostsDetail /> */}
-        {/* <PostsCreate /> */}
-        {/* <PostsEdit /> */}
-        {/* <DeleteModal /> */}
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/create" component={BlogForm} />
+            <Route exact path="/edit" component={PostsEdit} />
+            <Route exact path="/detail" component={PostsDetail} />
+            <Route exact path="/list" component={BlogList} />
+
+            {/* <DeleteModal /> */}
+          </Switch>
+        </BrowserRouter>
       </div>
       <Footer />
     </div>
