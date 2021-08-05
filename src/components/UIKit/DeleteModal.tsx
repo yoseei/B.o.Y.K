@@ -33,7 +33,7 @@ const DeleteModal = () => {
       {/* <button type="button" onClick={handleOpen}>
         delete
       </button> */}
-      <PrimaryButton text={"削除する"} onClick={handleOpen} />
+      {/* <PrimaryButton text={"削除する"} onClick={handleOpen} /> */}
       <Modal open={open} onClose={handleClose}>
         {body}
       </Modal>

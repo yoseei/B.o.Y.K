@@ -1,5 +1,5 @@
 import React from "react";
-import PrimaryButton from "../../UIKit/PrimaryButton";
+import PrimaryButton from "../UIKit/PrimaryButton";
 import scss from "./PostsEdit.module.scss";
 
 const PostsEdit = () => {
@@ -20,10 +20,10 @@ const PostsEdit = () => {
         </div>
       </div>
       <div className={scss.button_wrapper}>
-        <PrimaryButton
+        {/* <PrimaryButton
           text={"編集する"}
           onClick={() => console.log("click!")}
-        />
+        /> */}
       </div>
     </div>
   );

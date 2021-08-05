@@ -1,6 +1,6 @@
 import React from "react";
-import DeleteModal from "../../UIKit/DeleteModal";
-import PrimaryButton from "../../UIKit/PrimaryButton";
+import DeleteModal from "../UIKit/DeleteModal";
+import PrimaryButton from "../UIKit/PrimaryButton";
 import scss from "./PostsDetail.module.scss";
 
 const PostsDetail = () => {
@@ -33,10 +33,10 @@ const PostsDetail = () => {
       </div>
       <div className={scss.button_wrapper}>
         <div className={scss.edit}>
-          <PrimaryButton
+          {/* <PrimaryButton
             text={"編集する"}
             onClick={() => console.log("Click!")}
-          />
+          /> */}
         </div>
         <div className={scss.delete}>
           <DeleteModal />

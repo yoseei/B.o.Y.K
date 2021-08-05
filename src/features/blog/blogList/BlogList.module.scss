@@ -1,0 +1,60 @@
+.root {
+  flex: 1;
+  .lists_container {
+    width: 80%;
+    height: 250px;
+    margin: 50px auto;
+    background-color: aliceblue;
+    .header {
+      display: flex;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #00000020;
+      width: 95%;
+      margin: 0 auto;
+      .checkBox {
+        width: 10%;
+      }
+      .id {
+        width: 10%;
+        border-left: 1px solid #00000020;
+        border-right: 1px solid #00000020;
+        text-align: center;
+      }
+      .title {
+        width: 20%;
+        border-right: 1px solid #00000020;
+        text-align: center;
+      }
+      .createDate {
+        width: 20%;
+        border-right: 1px solid #00000020;
+        text-align: center;
+      }
+      .updateDate {
+        width: 20%;
+        border-right: 1px solid #00000020;
+        text-align: center;
+      }
+      .like {
+        width: 20%;
+        text-align: center;
+      }
+    }
+  }
+  .listsNumber_wrapper {
+    width: 100%;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: flex-end;
+    p {
+      display: inline-block;
+    }
+    .bracket_left {
+      padding: 0 15px;
+    }
+    .bracket_right {
+      margin-right: 25px;
+    }
+  }
+}

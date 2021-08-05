@@ -1,5 +1,5 @@
 import React from "react";
-import PrimaryButton from "../../UIKit/PrimaryButton";
+import PrimaryButton from "../UIKit/PrimaryButton";
 import scss from "./PostsCreate.module.scss";
 
 const PostsCreate = () => {
@@ -20,10 +20,10 @@ const PostsCreate = () => {
         </div>
       </div>
       <div className={scss.button_wrapper}>
-        <PrimaryButton
+        {/* <PrimaryButton
           text={"投稿する"}
           onClick={() => console.log("click!")}
-        />
+        /> */}
       </div>
     </div>
   );
