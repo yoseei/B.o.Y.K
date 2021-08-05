@@ -1,8 +1,9 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import scss from "./BlogForm.module.scss";
 import TextField from "@material-ui/core/TextField";
 import { useForm } from "react-hook-form";
-import PrimaryButton from "../../../components/UIKit/PrimaryButton";
+import { createBlog, selectBlogs } from "../blogSlice";
 type Inputs = {
   blogTitle: string;
   blogContent: string;
@@ -10,11 +11,25 @@ type Inputs = {
 const BlogForm: React.FC = () => {
   const { register, handleSubmit, reset } = useForm();
 
+  const dispatch = useDispatch();
   const handleCreate = (data: Inputs) => {
-    console.log(data.blogTitle);
-    console.log(data.blogContent);
+    const DD = new Date();
+    const year = DD.getFullYear();
+    const month = DD.getMonth() + 1;
+    const date = DD.getDate();
+    const currentDate = `${year}/${month}/${date}`;
+    dispatch(
+      createBlog({
+        title: data.blogTitle,
+        content: data.blogContent,
+        createDate: currentDate,
+      })
+    );
     reset();
   };
+
+  const blogs = useSelector(selectBlogs);
+  console.log(blogs);
   return (
     <div className={scss.root}>
       <div className={scss.container}>
@@ -44,7 +59,11 @@ const BlogForm: React.FC = () => {
             />
             <div className={scss.content_display}></div>
           </div>
-          <button type="submit" className={scss.button}>
+          <button
+            type="submit"
+            className={scss.button}
+            onClick={() => console.log("送信しました")}
+          >
             投稿する
           </button>
         </form>

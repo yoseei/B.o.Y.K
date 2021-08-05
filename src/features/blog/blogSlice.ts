@@ -31,16 +31,16 @@ export const blogSlice = createSlice({
    // blogの作成
    createBlog: (state, action) => {
     state.idCount++;
-    const newTask = {
+    const newTitle = {
       id: state.idCount,
-      title: action.payload,
-      content: action.payload,
-      createDate: action.payload,
-      updateDate: action.payload,
+      title: action.payload.title,
+      content: action.payload.content,
+      createDate: action.payload.createDate,
+      updateDate: action.payload.createDate,
       likes: 0,
       completed: false,
     }
-    state.blogs = [newTask, ...state.blogs]
+    state.blogs = [newTitle, ...state.blogs]
   },
   },
  
