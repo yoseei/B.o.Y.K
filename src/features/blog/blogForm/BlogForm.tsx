@@ -15,8 +15,9 @@ type Inputs = {
 };
 const BlogForm: React.FC = () => {
   const { register, handleSubmit, reset } = useForm();
-
   const dispatch = useDispatch();
+  const isModalOpen = useSelector(selectIsModalOpen);
+
   const handleCreate = (data: Inputs) => {
     const DD = new Date();
     const year = DD.getFullYear();
@@ -67,7 +68,7 @@ const BlogForm: React.FC = () => {
           <button
             type="submit"
             className={scss.button}
-            onClick={() => dispatch()}
+            onClick={() => console.log("投稿しました")}
           >
             投稿する
           </button>
