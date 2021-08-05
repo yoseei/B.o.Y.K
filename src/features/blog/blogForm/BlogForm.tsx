@@ -3,7 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import scss from "./BlogForm.module.scss";
 import TextField from "@material-ui/core/TextField";
 import { useForm } from "react-hook-form";
-import { createBlog, selectBlogs } from "../blogSlice";
+import {
+  createBlog,
+  handleModalOpen,
+  selectIsModalOpen,
+  selectBlogs,
+} from "../blogSlice";
 type Inputs = {
   blogTitle: string;
   blogContent: string;
@@ -62,7 +67,7 @@ const BlogForm: React.FC = () => {
           <button
             type="submit"
             className={scss.button}
-            onClick={() => console.log("送信しました")}
+            onClick={() => dispatch()}
           >
             投稿する
           </button>

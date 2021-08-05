@@ -42,13 +42,17 @@ export const blogSlice = createSlice({
     }
     state.blogs = [newTitle, ...state.blogs]
   },
+  handleModalOpen: (state, action) => {
+    state.isModalOpen = action.payload
+  }
   },
  
 });
 
-export const { createBlog } = blogSlice.actions;
+export const { createBlog,handleModalOpen } = blogSlice.actions;
 
 
 export const selectBlogs = (state: RootState):BlogState["blogs"] => state.blog.blogs;
+export const selectIsModalOpen = (state: RootState):BlogState["isModalOpen"] => state.blog.isModalOpen;
 
 export default blogSlice.reducer;
