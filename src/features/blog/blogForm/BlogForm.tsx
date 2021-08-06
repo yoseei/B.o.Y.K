@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import scss from "./BlogForm.module.scss";
 import TextField from "@material-ui/core/TextField";
@@ -60,15 +61,13 @@ const BlogForm: React.FC = () => {
             />
             <div className={scss.content_display}></div>
           </div>
-          <Link to="/list">
-            <button
-              type="submit"
-              className={scss.button}
-              onClick={() => console.log("投稿しました")}
-            >
-              投稿する
-            </button>
-          </Link>
+          <button
+            type="submit"
+            className={scss.button}
+            onClick={() => console.log("投稿しました")}
+          >
+            <Link to="/list">投稿する</Link>
+          </button>
         </form>
       </div>
     </div>

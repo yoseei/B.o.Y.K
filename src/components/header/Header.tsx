@@ -10,9 +10,9 @@ const Header = () => {
           <h1>B.o.Y.K</h1>
         </div>
         <div className={scss.newPost_wrapper}>
-          <Link to="/create">
-            <p>新規投稿</p>
-          </Link>
+          <p>
+            <Link to="/create">新規投稿</Link>
+          </p>
         </div>
       </div>
     </div>

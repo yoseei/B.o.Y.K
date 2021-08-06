@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+
 import { useSelector } from "react-redux";
 import { selectBlogs } from "../blogSlice";
 import scss from "./BlogList.module.scss";
@@ -15,7 +17,8 @@ type BlogTypes = {
   completed: boolean;
 };
 const BlogList = () => {
-  const [blogs, setBlogs] = useState<BlogTypes[]>([]);
+  const [blogData, setBlogData] = useState<any[]>([]);
+
 
   useEffect(() => {
     fetch("http://localhost:3001/blogs")
@@ -23,8 +26,9 @@ const BlogList = () => {
         return res.json();
       })
       .then((data) => {
-        setBlogs(data);
+        setBlogData(data);
       });
+    return;
   }, []);
 
   return (
@@ -43,7 +47,7 @@ const BlogList = () => {
           <div className={scss.updateDate}>最終更新日時</div>
           <div className={scss.like}>いいね</div>
         </div>
-        {blogs.map((blog) => (
+        {blogData.map((blog) => (
           <BlogItem key={blog.id} blog={blog} />
         ))}
       </div>
