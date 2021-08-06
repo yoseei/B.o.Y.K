@@ -4,6 +4,7 @@ import scss from "./BlogForm.module.scss";
 import TextField from "@material-ui/core/TextField";
 import { useForm } from "react-hook-form";
 import { createBlog } from "../blogSlice";
+import { Link } from "react-router-dom";
 
 type Inputs = {
   blogTitle: string;
@@ -59,13 +60,15 @@ const BlogForm: React.FC = () => {
             />
             <div className={scss.content_display}></div>
           </div>
-          <button
-            type="submit"
-            className={scss.button}
-            onClick={() => console.log("投稿しました")}
-          >
-            投稿する
-          </button>
+          <Link to="/list">
+            <button
+              type="submit"
+              className={scss.button}
+              onClick={() => console.log("投稿しました")}
+            >
+              投稿する
+            </button>
+          </Link>
         </form>
       </div>
     </div>

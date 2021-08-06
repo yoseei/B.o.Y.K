@@ -1,13 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { selectBlogs } from "../blogSlice";
 import scss from "./BlogList.module.scss";
 import Checkbox from "@material-ui/core/Checkbox";
 import BlogItem from "../blogItem/BlogItem";
 
+type BlogTypes = {
+  id: number;
+  title: string;
+  content: string;
+  createDate: string;
+  updateDate: string;
+  likes: number;
+  completed: boolean;
+};
 const BlogList = () => {
-  const blogs = useSelector(selectBlogs);
-  console.log(blogs);
+  const [blogs, setBlogs] = useState<BlogTypes[]>([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3001/blogs")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setBlogs(data);
+      });
+  }, []);
 
   return (
     <div className={scss.root}>
