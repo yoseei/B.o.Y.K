@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useDispatch } from "react-redux";
 import scss from "./BlogForm.module.scss";
 import TextField from "@material-ui/core/TextField";
 import { useForm } from "react-hook-form";
@@ -14,7 +14,7 @@ const BlogForm: React.FC = () => {
   const { register, handleSubmit, reset } = useForm();
   const dispatch = useDispatch();
 
-  const handleCreate = async (data: Inputs) => {
+  const handleCreate = (data: Inputs) => {
     const DD = new Date();
     const year = DD.getFullYear();
     const month = DD.getMonth() + 1;

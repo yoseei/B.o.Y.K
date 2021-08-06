@@ -44,8 +44,9 @@ export const blogSlice = createSlice({
         completed: false,
       }
       state.blogs = [newTitle, ...state.blogs]
+      blogs.post("/blogs", state.blogs)
     },
-    
+
     handleModalOpen: (state, action) => {
       state.isModalOpen = action.payload
     },
