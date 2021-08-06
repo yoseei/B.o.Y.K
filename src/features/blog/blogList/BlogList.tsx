@@ -1,13 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+
 import { useSelector } from "react-redux";
 import { selectBlogs } from "../blogSlice";
 import scss from "./BlogList.module.scss";
 import Checkbox from "@material-ui/core/Checkbox";
 import BlogItem from "../blogItem/BlogItem";
 
+type BlogTypes = {
+  id: number;
+  title: string;
+  content: string;
+  createDate: string;
+  updateDate: string;
+  likes: number;
+  completed: boolean;
+};
 const BlogList = () => {
   const [blogData, setBlogData] = useState<any[]>([]);
+
 
   useEffect(() => {
     fetch("http://localhost:3001/blogs")

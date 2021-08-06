@@ -5,6 +5,7 @@ import scss from "./BlogForm.module.scss";
 import TextField from "@material-ui/core/TextField";
 import { useForm } from "react-hook-form";
 import { createBlog } from "../blogSlice";
+import { Link } from "react-router-dom";
 
 type Inputs = {
   blogTitle: string;

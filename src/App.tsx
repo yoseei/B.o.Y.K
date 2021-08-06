@@ -19,7 +19,7 @@ function App() {
           <Switch>
             <Route exact path="/create" component={BlogForm} />
             <Route exact path="/edit" component={PostsEdit} />
-            <Route exact path="/detail" component={PostsDetail} />
+            <Route exact path="/detail/:id" component={PostsDetail} />
             <Route exact path="/list" component={BlogList} />
 
             {/* <DeleteModal /> */}

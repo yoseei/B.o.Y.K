@@ -1,6 +1,7 @@
 import React from "react";
 import scss from "./BlogItem.module.scss";
 import { Checkbox } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 type PropTypes = {
   blog: {
@@ -20,7 +21,9 @@ const BlogItem: React.FC<PropTypes> = ({ blog }) => {
         <Checkbox checked={blog.completed} />
       </div>
       <div className={scss.id}>{blog.id}</div>
-      <div className={scss.title}>{blog.title}</div>
+      <div className={scss.title}>
+        <Link to="/detail/:id">{blog.title}</Link>
+      </div>
       <div className={scss.createDate}>{blog.createDate}</div>
       <div className={scss.updateDate}>{blog.updateDate}</div>
       <div className={scss.like}>{blog.likes}</div>
