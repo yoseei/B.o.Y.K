@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import scss from "./Header.module.scss";
 
 const Header = () => {
@@ -9,7 +10,9 @@ const Header = () => {
           <h1>B.o.Y.K</h1>
         </div>
         <div className={scss.newPost_wrapper}>
-          <p>新規投稿</p>
+          <p>
+            <Link to="/create">新規投稿</Link>
+          </p>
         </div>
       </div>
     </div>

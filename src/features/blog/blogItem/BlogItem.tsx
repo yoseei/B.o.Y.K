@@ -17,11 +17,7 @@ const BlogItem: React.FC<PropTypes> = ({ blog }) => {
   return (
     <div className={scss.root}>
       <div className={scss.checkBox}>
-        <Checkbox
-          checked={blog.completed}
-          // color="secondary"
-          // inputProps={{ "aria-label": "secondary checkbox" }}
-        />
+        <Checkbox checked={blog.completed} />
       </div>
       <div className={scss.id}>{blog.id}</div>
       <div className={scss.title}>{blog.title}</div>

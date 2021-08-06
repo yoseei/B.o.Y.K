@@ -13,9 +13,9 @@ import { Switch, Route, BrowserRouter } from "react-router-dom";
 function App() {
   return (
     <div className={scss.root}>
-      <Header />
-      <div className={scss.main}>
-        <BrowserRouter>
+      <BrowserRouter>
+        <Header />
+        <div className={scss.main}>
           <Switch>
             <Route exact path="/create" component={BlogForm} />
             <Route exact path="/edit" component={PostsEdit} />
@@ -24,9 +24,9 @@ function App() {
 
             {/* <DeleteModal /> */}
           </Switch>
-        </BrowserRouter>
-      </div>
-      <Footer />
+        </div>
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 }

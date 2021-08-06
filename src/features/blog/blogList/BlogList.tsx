@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectBlogs } from "../blogSlice";
 import scss from "./BlogList.module.scss";
@@ -6,8 +7,18 @@ import Checkbox from "@material-ui/core/Checkbox";
 import BlogItem from "../blogItem/BlogItem";
 
 const BlogList = () => {
-  const blogs = useSelector(selectBlogs);
-  console.log(blogs);
+  const [blogData, setBlogData] = useState<any[]>([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3001/blogs")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setBlogData(data);
+      });
+    return;
+  }, []);
 
   return (
     <div className={scss.root}>
@@ -25,7 +36,7 @@ const BlogList = () => {
           <div className={scss.updateDate}>最終更新日時</div>
           <div className={scss.like}>いいね</div>
         </div>
-        {blogs.map((blog) => (
+        {blogData.map((blog) => (
           <BlogItem key={blog.id} blog={blog} />
         ))}
       </div>
