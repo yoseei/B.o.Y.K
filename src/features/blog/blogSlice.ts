@@ -1,6 +1,9 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState, AppThunk } from '../../app/store';
 // import { fetchCount } from './counterAPI';
+import blogs from "../../apis/blogs"
+import { iteratorSymbol } from 'immer/dist/internal';
+
 
 export interface BlogState {
    // blogが何個あるのかを管理する
@@ -15,9 +18,9 @@ export interface BlogState {
 }
 
 const initialState: BlogState = {
-  idCount: 1,
+  idCount: 0,
   // storeに保存するblogの一覧
-  blogs: [{id: 1, title: "Blog 1", content: "初期データ", createDate: "2021/08/05", updateDate: "2021/08/06", likes: 20, completed: false}],
+  blogs: [{id: 0, title: "", content: "", createDate: "", updateDate: "", likes: 0, completed: false}],
   // blogのtitle,contentを編集する際にどのblogが選択されているか
   selectedBlog: {id: 0, title: "", content: "", createDate: "", updateDate: "", likes: 0, completed: false},
   // modalを開くか閉じるかのフラグ
@@ -28,28 +31,30 @@ export const blogSlice = createSlice({
   name: 'blog',
   initialState,
   reducers: {
-   // blogの作成
-   createBlog: (state, action) => {
-    state.idCount++;
-    const newTitle = {
-      id: state.idCount,
-      title: action.payload.title,
-      content: action.payload.content,
-      createDate: action.payload.createDate,
-      updateDate: action.payload.createDate,
-      likes: 0,
-      completed: false,
-    }
-    state.blogs = [newTitle, ...state.blogs]
-  },
-  handleModalOpen: (state, action) => {
-    state.isModalOpen = action.payload
-  }
+    // blogの作成
+    createBlog: (state, action) =>{
+      state.idCount++;
+      const newTitle = {
+        id: state.idCount,
+        title: action.payload.title,
+        content: action.payload.content,
+        createDate: action.payload.createDate,
+        updateDate: action.payload.createDate,
+        likes: 0,
+        completed: false,
+      }
+      state.blogs = [newTitle, ...state.blogs]
+    },
+    
+    handleModalOpen: (state, action) => {
+      state.isModalOpen = action.payload
+    },
+   
   },
  
 });
 
-export const { createBlog,handleModalOpen } = blogSlice.actions;
+export const { createBlog, handleModalOpen } = blogSlice.actions;
 
 
 export const selectBlogs = (state: RootState):BlogState["blogs"] => state.blog.blogs;

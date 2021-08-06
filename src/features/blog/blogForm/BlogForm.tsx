@@ -1,24 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import scss from "./BlogForm.module.scss";
 import TextField from "@material-ui/core/TextField";
 import { useForm } from "react-hook-form";
-import {
-  createBlog,
-  handleModalOpen,
-  selectIsModalOpen,
-  selectBlogs,
-} from "../blogSlice";
+import { createBlog } from "../blogSlice";
+
 type Inputs = {
   blogTitle: string;
   blogContent: string;
 };
+
 const BlogForm: React.FC = () => {
   const { register, handleSubmit, reset } = useForm();
   const dispatch = useDispatch();
-  const isModalOpen = useSelector(selectIsModalOpen);
 
-  const handleCreate = (data: Inputs) => {
+  const handleCreate = async (data: Inputs) => {
     const DD = new Date();
     const year = DD.getFullYear();
     const month = DD.getMonth() + 1;
@@ -34,8 +30,6 @@ const BlogForm: React.FC = () => {
     reset();
   };
 
-  const blogs = useSelector(selectBlogs);
-  console.log(blogs);
   return (
     <div className={scss.root}>
       <div className={scss.container}>
