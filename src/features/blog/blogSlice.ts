@@ -6,24 +6,17 @@ import { iteratorSymbol } from 'immer/dist/internal';
 
 
 export interface BlogState {
-   // blogが何個あるのかを管理する
 
   idCount: number;
-   // storeに保存するblogの一覧
    blogs: {id: number; title: string; content: string; createDate: string; updateDate:string; likes: number; completed: boolean}[]
-   // blogのtitle,contentを編集する際にどのblogが選択されているか
    selectedBlog: {id: number; title: string; content: string; createDate: string; updateDate:string; likes: number; completed: boolean},
-   // modalを開くか閉じるかのフラグ
    isModalOpen: boolean;
 }
 
 const initialState: BlogState = {
   idCount: 0,
-  // storeに保存するblogの一覧
   blogs: [{id: 0, title: "", content: "", createDate: "", updateDate: "", likes: 0, completed: false}],
-  // blogのtitle,contentを編集する際にどのblogが選択されているか
   selectedBlog: {id: 0, title: "", content: "", createDate: "", updateDate: "", likes: 0, completed: false},
-  // modalを開くか閉じるかのフラグ
   isModalOpen: false,
 };
 
@@ -31,7 +24,6 @@ export const blogSlice = createSlice({
   name: 'blog',
   initialState,
   reducers: {
-    // blogの作成
     createBlog: (state, action) =>{
       state.idCount++;
       const newTitle = {
@@ -44,9 +36,18 @@ export const blogSlice = createSlice({
         completed: false,
       }
       state.blogs = [newTitle, ...state.blogs]
-      blogs.post("/blogs", state.blogs)
     },
+    postJson: (state) => {
+      const submitName = () => async () => {
+        await blogs.post('/blogs', ...state.blogs)
+     
 
+        // method: "POST",
+        // headers: { "Content-Type": "application/json" },
+        // body: JSON.stringify(state.blogs.slice(-1)[0]),
+      }
+      submitName()
+    },
     handleModalOpen: (state, action) => {
       state.isModalOpen = action.payload
     },
@@ -55,7 +56,7 @@ export const blogSlice = createSlice({
  
 });
 
-export const { createBlog, handleModalOpen } = blogSlice.actions;
+export const { createBlog, handleModalOpen, postJson } = blogSlice.actions;
 
 
 export const selectBlogs = (state: RootState):BlogState["blogs"] => state.blog.blogs;

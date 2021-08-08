@@ -7,29 +7,8 @@ import scss from "./BlogList.module.scss";
 import Checkbox from "@material-ui/core/Checkbox";
 import BlogItem from "../blogItem/BlogItem";
 
-type BlogTypes = {
-  id: number;
-  title: string;
-  content: string;
-  createDate: string;
-  updateDate: string;
-  likes: number;
-  completed: boolean;
-};
 const BlogList = () => {
   const [blogData, setBlogData] = useState<any[]>([]);
-
-
-  useEffect(() => {
-    fetch("http://localhost:3001/blogs")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setBlogData(data);
-      });
-    return;
-  }, []);
 
   return (
     <div className={scss.root}>

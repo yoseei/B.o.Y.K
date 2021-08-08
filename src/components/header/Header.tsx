@@ -7,7 +7,9 @@ const Header = () => {
     <div className={scss.root}>
       <div className={scss.container}>
         <div className={scss.title_wrapper}>
-          <h1>B.o.Y.K</h1>
+          <Link to="/list">
+            <h1>B.o.Y.K</h1>
+          </Link>
         </div>
         <div className={scss.newPost_wrapper}>
           <p>
