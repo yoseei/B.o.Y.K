@@ -4,7 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import scss from "./BlogForm.module.scss";
 import TextField from "@material-ui/core/TextField";
 import { useForm } from "react-hook-form";
-import { createBlog, postJson, selectBlogs } from "../blogSlice";
+import { createBlog, selectBlogs } from "../blogSlice";
+import { fetchAllTodos } from "../../todo/todoSlice";
+import { AppDispatch } from "../../../app/store";
 
 type Inputs = {
   blogTitle: string;
@@ -19,8 +21,8 @@ const currentDate = `${year}/${month}/${date}`;
 
 const BlogForm: React.FC = () => {
   const { register, handleSubmit, reset } = useForm();
-  const dispatch = useDispatch();
-  const blogs = useSelector(selectBlogs);
+  const dispatch: AppDispatch = useDispatch();
+  // const postsData = useSelector(selectPosts);
 
   const handleCreate = async (data: Inputs) => {
     dispatch(
@@ -33,9 +35,7 @@ const BlogForm: React.FC = () => {
     reset();
   };
 
-  dispatch(postJson());
-
-  console.log(blogs);
+  dispatch(fetchAllTodos());
   return (
     <div className={scss.root}>
       <div className={scss.container}>

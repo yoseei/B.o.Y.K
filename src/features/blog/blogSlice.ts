@@ -37,17 +37,6 @@ export const blogSlice = createSlice({
       }
       state.blogs = [newTitle, ...state.blogs]
     },
-    postJson: (state) => {
-      const submitName = () => async () => {
-        await blogs.post('/blogs', ...state.blogs)
-     
-
-        // method: "POST",
-        // headers: { "Content-Type": "application/json" },
-        // body: JSON.stringify(state.blogs.slice(-1)[0]),
-      }
-      submitName()
-    },
     handleModalOpen: (state, action) => {
       state.isModalOpen = action.payload
     },
@@ -56,7 +45,7 @@ export const blogSlice = createSlice({
  
 });
 
-export const { createBlog, handleModalOpen, postJson } = blogSlice.actions;
+export const { createBlog, handleModalOpen } = blogSlice.actions;
 
 
 export const selectBlogs = (state: RootState):BlogState["blogs"] => state.blog.blogs;
