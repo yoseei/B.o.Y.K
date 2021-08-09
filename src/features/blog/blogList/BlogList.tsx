@@ -8,8 +8,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 import BlogItem from "../blogItem/BlogItem";
 
 const BlogList = () => {
-  const [blogData, setBlogData] = useState<any[]>([]);
-
+  const blogs = useSelector(selectBlogs);
   return (
     <div className={scss.root}>
       <div className={scss.lists_container}>
@@ -26,7 +25,7 @@ const BlogList = () => {
           <div className={scss.updateDate}>最終更新日時</div>
           <div className={scss.like}>いいね</div>
         </div>
-        {blogData.map((blog) => (
+        {blogs.map((blog) => (
           <BlogItem key={blog.id} blog={blog} />
         ))}
       </div>

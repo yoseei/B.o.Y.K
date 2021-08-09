@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "./app/store";
+import { fetchBlogs } from "./features/blog/blogSlice";
 import { Counter } from "./features/counter/Counter";
 import Header from "./components/header/Header";
 import scss from "./App.module.scss";
@@ -11,6 +14,15 @@ import BlogList from "./features/blog/blogList/BlogList";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 
 function App() {
+  const dispatch: AppDispatch = useDispatch();
+
+  useEffect(() => {
+    const getData = () => {
+      dispatch(fetchBlogs());
+    };
+    getData();
+  }, []);
+
   return (
     <div className={scss.root}>
       <BrowserRouter>

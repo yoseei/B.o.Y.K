@@ -5,7 +5,7 @@ import scss from "./BlogForm.module.scss";
 import TextField from "@material-ui/core/TextField";
 import { useForm } from "react-hook-form";
 import { createBlog, selectBlogs } from "../blogSlice";
-import { fetchAllTodos } from "../../todo/todoSlice";
+import { fetchBlogs } from "../../blog/blogSlice";
 import { AppDispatch } from "../../../app/store";
 
 type Inputs = {
@@ -35,7 +35,6 @@ const BlogForm: React.FC = () => {
     reset();
   };
 
-  dispatch(fetchAllTodos());
   return (
     <div className={scss.root}>
       <div className={scss.container}>
