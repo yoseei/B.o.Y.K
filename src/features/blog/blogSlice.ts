@@ -20,6 +20,7 @@ const initialState: BlogState = {
   isModalOpen: false,
 };
 
+
 export const blogSlice = createSlice({
   name: 'blog',
   initialState,
