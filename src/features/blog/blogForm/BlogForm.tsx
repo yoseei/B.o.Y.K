@@ -33,6 +33,7 @@ const BlogForm: React.FC = () => {
       })
     );
     reset();
+    dispatch(fetchBlogs());
   };
 
   return (

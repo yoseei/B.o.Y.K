@@ -4,6 +4,7 @@ import { RootState, AppThunk } from '../../app/store';
 import blogs from "../../apis/blogs"
 import { iteratorSymbol } from 'immer/dist/internal';
 import axios from 'axios';
+import { stringify } from 'querystring';
 
 
 export interface BlogState {
@@ -44,23 +45,60 @@ export const fetchBlogs = createAsyncThunk("blog/fetchBlogs", async() => {
   return passData;
 })
 
+/* --------------------------------------
+            blogの作成
+-------------------------------------- */
+type BlogType = {
+  title: string,
+  content: string,
+  createDate: string,
+}
+
+export const createBlog = createAsyncThunk("blog/createBlog", async({title, content, createDate}:BlogType)=> {
+  const res = await axios.get('http://localhost:3001/blogs')
+  
+  const allBlogs = res.data.map((data:any) => ({
+    "id": data.id,
+    "title": data.title,
+    "content": data.content,
+    "createDate": data.createDate,
+    "updateDate": data.updateDate,
+    "likes": data.likes,
+    "completed": data.completed
+  }))
+
+  const blogNumber = allBlogs.length;
+  
+  await axios.post("http://localhost:3001/blogs", {
+    id: blogNumber+1,
+    title: title,
+    content: content,
+    createDate: createDate,
+    updateDate: createDate,
+    likes: 0,
+    completed: false,
+  })
+
+})
+
+
 export const blogSlice = createSlice({
   name: 'blog',
   initialState,
   reducers: {
-    createBlog: (state, action) =>{
-      state.idCount++;
-      const newTitle = {
-        id: state.idCount,
-        title: action.payload.title,
-        content: action.payload.content,
-        createDate: action.payload.createDate,
-        updateDate: action.payload.createDate,
-        likes: 0,
-        completed: false,
-      }
-      state.blogs = [newTitle, ...state.blogs]
-    },
+    // createBlog: (state, action) =>{
+    //   state.idCount++;
+    //   const newTitle = {
+    //     id: state.idCount,
+    //     title: action.payload.title,
+    //     content: action.payload.content,
+    //     createDate: action.payload.createDate,
+    //     updateDate: action.payload.createDate,
+    //     likes: 0,
+    //     completed: false,
+    //   }
+    //   state.blogs = [newTitle, ...state.blogs]
+    // },
     handleModalOpen: (state, action) => {
       state.isModalOpen = action.payload
     },
@@ -77,7 +115,7 @@ export const blogSlice = createSlice({
  
 });
 
-export const { createBlog, handleModalOpen } = blogSlice.actions;
+export const { handleModalOpen } = blogSlice.actions;
 
 
 export const selectBlogs = (state: RootState):BlogState["blogs"] => state.blog.blogs;
