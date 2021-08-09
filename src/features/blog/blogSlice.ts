@@ -17,7 +17,6 @@ export interface BlogState {
 
 const initialState: BlogState = {
   idCount: 0,
-  // blogs: [{id: 0, title: "", content: "", createDate: "", updateDate: "", likes: 0, completed: false}],
   blogs: [],
   selectedBlog: {id: 0, title: "", content: "", createDate: "", updateDate: "", likes: 0, completed: false},
   isModalOpen: false,
@@ -43,6 +42,26 @@ export const fetchBlogs = createAsyncThunk("blog/fetchBlogs", async() => {
   const blogNumber = allBlogs.length;
   const passData = {allBlogs, blogNumber}
   return passData;
+})
+
+/* --------------------------------------
+          selectedBlogの全件取得
+-------------------------------------- */
+export const fetchSelectedBlog = createAsyncThunk("blog/fetchSelectedBlog", async() => {
+  const res = await axios.get('http://localhost:3001/selectedBlog')
+  
+  // レスポンスの整形
+  const selectedBlogData = {
+    "id": res.data.id,
+    "title": res.data.title,
+    "content": res.data.content,
+    "createDate": res.data.createDate,
+    "updateDate": res.data.updateDate,
+    "likes": res.data.likes,
+    "completed": res.data.completed,
+  }
+
+  return selectedBlogData;
 })
 
 /* --------------------------------------
@@ -80,6 +99,22 @@ export const createBlog = createAsyncThunk("blog/createBlog", async({title, cont
   })
 
 })
+/* --------------------------------------
+            selectedBlogの作成
+-------------------------------------- */
+
+export const createSelectedBlog = createAsyncThunk("blog/createSelectedBlog", async({id, title, content, createDate, updateDate, likes, completed}:BlogState["selectedBlog"])=> {
+  // const blogData = {id, title, content, createDate, updateDate, likes, completed}
+  await axios.post('http://localhost:3001/selectedBlog', {
+    "id": id,
+    "title": title,
+    "content": content,
+    "createDate": createDate,
+    "updateDate": updateDate,
+    "likes": likes,
+    "completed": completed
+  })
+})
 
 /* --------------------------------------
             blogの編集
@@ -91,15 +126,6 @@ type EditBlogType = {
 }
 export const editBlog = createAsyncThunk("blog/editBlog", async({title, content, updateDate}:EditBlogType) => {
 
-  // await axios.post("http://localhost:3001/blogs", {
-  //   id: ,
-  //   title: title,
-  //   content: content,
-  //   createDate: ,
-  //   updateDate: updateDate,
-  //   likes: 0,
-  //   completed: false,
-  // })
 })
 
 export const blogSlice = createSlice({
@@ -119,9 +145,12 @@ export const blogSlice = createSlice({
       // action.payload === return passData
       state.blogs = action.payload.allBlogs
       state.idCount = action.payload.blogNumber
-    } )
+    })
+    builder.addCase(fetchSelectedBlog.fulfilled, (state, action) => {
+      // action.payload === return selectedBlogData
+      state.selectedBlog = action.payload
+    })
   }
- 
 });
 
 export const { handleModalOpen, selectBlog } = blogSlice.actions;

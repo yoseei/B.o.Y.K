@@ -3,7 +3,9 @@ import { useDispatch } from "react-redux";
 import scss from "./BlogItem.module.scss";
 import { Checkbox } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import { selectBlog } from "../blogSlice";
+import { createSelectedBlog, fetchSelectedBlog } from "../blogSlice";
+import { AppDispatch } from "../../../app/store";
+
 type PropTypes = {
   blog: {
     id: number;
@@ -16,9 +18,10 @@ type PropTypes = {
   };
 };
 const BlogItem: React.FC<PropTypes> = ({ blog }) => {
-  const dispatch = useDispatch();
-  const handleLink = () => {
-    dispatch(selectBlog(blog));
+  const dispatch: AppDispatch = useDispatch();
+  const handleLink = async () => {
+    await dispatch(createSelectedBlog(blog));
+    await dispatch(fetchSelectedBlog());
   };
   return (
     <div className={scss.root}>

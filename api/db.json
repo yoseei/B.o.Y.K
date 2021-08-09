@@ -18,5 +18,14 @@
       "likes": 0,
       "completed": false
     }
-  ]
+  ],
+  "selectedBlog": {
+    "id": 1,
+    "title": "こんにちは",
+    "content": "こんにちはテスト",
+    "createDate": "2021/8/9",
+    "updateDate": "2021/8/9",
+    "likes": 0,
+    "completed": false
+  }
 }

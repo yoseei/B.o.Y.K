@@ -7,12 +7,12 @@ import { selectSelectedBlog } from "../blogSlice";
 const PostsDetail = () => {
   const blogData = useSelector(selectSelectedBlog);
 
-  console.log(blogData);
+  console.log(blogData.title);
   return (
     <div className={scss.root}>
       <div className={scss.contents_container}>
         <div className={scss.title_wrapper}>
-          <p className={scss.title}>test</p>
+          <p className={scss.title}>{blogData.title}</p>
         </div>
         <div className={scss.updateDate_likes_wrapper}>
           <div className={scss.updateDate_wrapper}>
