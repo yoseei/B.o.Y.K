@@ -1,0 +1,40 @@
+.root {
+  flex: 1;
+  .contents_container {
+    width: 80%;
+    height: 250px;
+    margin: 50px auto;
+    background-color: aliceblue;
+    .title_wrapper {
+      padding-top: 10px;
+      text-align: center;
+      .title {
+        font-size: 2rem;
+      }
+    }
+    .updateDate_likes_wrapper {
+      margin-left: 10%;
+      display: flex;
+      margin-bottom: 10px;
+      margin-top: 10px;
+      .updateDate_wrapper {
+        margin-right: 50px;
+      }
+    }
+    .text_wrapper {
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+  .button_wrapper {
+    width: 40%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    .edit {
+    }
+    .delete {
+    }
+  }
+}

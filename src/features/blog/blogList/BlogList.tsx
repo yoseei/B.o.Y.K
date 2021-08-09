@@ -9,6 +9,7 @@ import BlogItem from "../blogItem/BlogItem";
 
 const BlogList = () => {
   const blogs = useSelector(selectBlogs);
+
   return (
     <div className={scss.root}>
       <div className={scss.lists_container}>
