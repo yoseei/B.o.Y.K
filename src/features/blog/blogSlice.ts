@@ -3,6 +3,7 @@ import { RootState, AppThunk } from '../../app/store';
 // import { fetchCount } from './counterAPI';
 import blogs from "../../apis/blogs"
 import { iteratorSymbol } from 'immer/dist/internal';
+import axios from 'axios';
 
 
 export interface BlogState {
@@ -15,11 +16,33 @@ export interface BlogState {
 
 const initialState: BlogState = {
   idCount: 0,
-  blogs: [{id: 0, title: "", content: "", createDate: "", updateDate: "", likes: 0, completed: false}],
+  // blogs: [{id: 0, title: "", content: "", createDate: "", updateDate: "", likes: 0, completed: false}],
+  blogs: [],
   selectedBlog: {id: 0, title: "", content: "", createDate: "", updateDate: "", likes: 0, completed: false},
   isModalOpen: false,
 };
 
+/* --------------------------------------
+            blogの全件取得
+-------------------------------------- */
+export const fetchBlogs = createAsyncThunk("blog/fetchBlogs", async() => {
+  const res = await axios.get('http://localhost:3001/blogs')
+  
+  console.log(res.data)
+  // レスポンスの整形
+  const allBlogs = res.data.map((data:any) => ({
+    "id": data.id,
+    "title": data.title,
+    "content": data.content,
+    "createDate": data.createDate,
+    "updateDate": data.updateDate,
+    "likes": data.likes,
+    "completed": data.completed
+  }))
+  const blogNumber = allBlogs.length;
+  const passData = {allBlogs, blogNumber}
+  return passData;
+})
 
 export const blogSlice = createSlice({
   name: 'blog',
@@ -43,6 +66,14 @@ export const blogSlice = createSlice({
     },
    
   },
+  extraReducers: (builder)=> {
+    // stateとactionの型が正しく推論されるためにbuilder関数を用いる
+    builder.addCase(fetchBlogs.fulfilled, (state, action) => {
+      // action.payload === return passData
+      state.blogs = action.payload.allBlogs
+      state.idCount = action.payload.blogNumber
+    } )
+  }
  
 });
 
