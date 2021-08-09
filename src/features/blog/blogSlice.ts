@@ -48,13 +48,13 @@ export const fetchBlogs = createAsyncThunk("blog/fetchBlogs", async() => {
 /* --------------------------------------
             blogの作成
 -------------------------------------- */
-type BlogType = {
+type CreateBlogType = {
   title: string,
   content: string,
   createDate: string,
 }
 
-export const createBlog = createAsyncThunk("blog/createBlog", async({title, content, createDate}:BlogType)=> {
+export const createBlog = createAsyncThunk("blog/createBlog", async({title, content, createDate}:CreateBlogType)=> {
   const res = await axios.get('http://localhost:3001/blogs')
   
   const allBlogs = res.data.map((data:any) => ({
@@ -81,28 +81,37 @@ export const createBlog = createAsyncThunk("blog/createBlog", async({title, cont
 
 })
 
+/* --------------------------------------
+            blogの編集
+-------------------------------------- */
+type EditBlogType = {
+  title: string,
+  content: string,
+  updateDate: string,
+}
+export const editBlog = createAsyncThunk("blog/editBlog", async({title, content, updateDate}:EditBlogType) => {
+
+  // await axios.post("http://localhost:3001/blogs", {
+  //   id: ,
+  //   title: title,
+  //   content: content,
+  //   createDate: ,
+  //   updateDate: updateDate,
+  //   likes: 0,
+  //   completed: false,
+  // })
+})
 
 export const blogSlice = createSlice({
   name: 'blog',
   initialState,
   reducers: {
-    // createBlog: (state, action) =>{
-    //   state.idCount++;
-    //   const newTitle = {
-    //     id: state.idCount,
-    //     title: action.payload.title,
-    //     content: action.payload.content,
-    //     createDate: action.payload.createDate,
-    //     updateDate: action.payload.createDate,
-    //     likes: 0,
-    //     completed: false,
-    //   }
-    //   state.blogs = [newTitle, ...state.blogs]
-    // },
     handleModalOpen: (state, action) => {
       state.isModalOpen = action.payload
     },
-   
+    selectBlog: (state, action) => {
+      state.selectedBlog = action.payload
+    }
   },
   extraReducers: (builder)=> {
     // stateとactionの型が正しく推論されるためにbuilder関数を用いる
@@ -115,10 +124,11 @@ export const blogSlice = createSlice({
  
 });
 
-export const { handleModalOpen } = blogSlice.actions;
+export const { handleModalOpen, selectBlog } = blogSlice.actions;
 
 
 export const selectBlogs = (state: RootState):BlogState["blogs"] => state.blog.blogs;
+export const selectSelectedBlog = (state: RootState):BlogState["selectedBlog"] => state.blog.selectedBlog;
 export const selectIsModalOpen = (state: RootState):BlogState["isModalOpen"] => state.blog.isModalOpen;
 
 export default blogSlice.reducer;
