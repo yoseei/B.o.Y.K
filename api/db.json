@@ -2,20 +2,20 @@
   "blogs": [
     {
       "id": 1,
-      "title": "テスト",
-      "content": "テストです",
-      "createDate": "2021/08/09",
-      "updateDate": "2021/08/09",
-      "likes": 20,
+      "title": "こんにちは",
+      "content": "こんにちはテスト",
+      "createDate": "2021/8/9",
+      "updateDate": "2021/8/9",
+      "likes": 0,
       "completed": false
     },
     {
       "id": 2,
-      "title": "テスト2",
-      "content": "テストか？",
-      "createDate": "2021/08/10",
-      "updateDate": "2021/08/10",
-      "likes": 60,
+      "title": "テスト投稿",
+      "content": "テストですよ",
+      "createDate": "2021/8/9",
+      "updateDate": "2021/8/9",
+      "likes": 0,
       "completed": false
     }
   ]
