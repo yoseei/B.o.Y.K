@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import scss from "./BlogForm.module.scss";
 import TextField from "@material-ui/core/TextField";
@@ -22,10 +22,10 @@ const currentDate = `${year}/${month}/${date}`;
 const BlogForm: React.FC = () => {
   const { register, handleSubmit, reset } = useForm();
   const dispatch: AppDispatch = useDispatch();
-  // const postsData = useSelector(selectPosts);
+  const history = useHistory();
 
   const handleCreate = async (data: Inputs) => {
-    dispatch(
+    await dispatch(
       createBlog({
         title: data.blogTitle,
         content: data.blogContent,
@@ -33,7 +33,8 @@ const BlogForm: React.FC = () => {
       })
     );
     reset();
-    dispatch(fetchBlogs());
+    await dispatch(fetchBlogs());
+    history.push("/list");
   };
 
   return (
