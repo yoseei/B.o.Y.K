@@ -2,26 +2,26 @@
   "blogs": [
     {
       "id": 1,
-      "title": "こんにちは",
-      "content": "こんにちはテスト",
+      "title": "現在勉強中ですよ",
+      "content": "今日も地道にがんばりますよ",
       "createDate": "2021/8/9",
-      "updateDate": "2021/8/9",
+      "updateDate": "2021/8/10",
       "likes": 0,
       "completed": false
     },
     {
       "id": 2,
-      "title": "テスト投稿",
-      "content": "テストですよ",
+      "title": "はひふへほ",
+      "content": "はひふへほ",
       "createDate": "2021/8/9",
-      "updateDate": "2021/8/9",
+      "updateDate": "2021/8/10",
       "likes": 0,
       "completed": false
     },
     {
       "id": 3,
-      "title": "あいうえお",
-      "content": "かきくけこ",
+      "title": "新規投稿テスト",
+      "content": "テスト投稿ですよ",
       "createDate": "2021/8/10",
       "updateDate": "2021/8/10",
       "likes": 0,
@@ -29,35 +29,8 @@
     },
     {
       "id": 4,
-      "title": "今日は雨だった",
-      "content": "ひどい雨でした",
-      "createDate": "2021/8/10",
-      "updateDate": "2021/8/10",
-      "likes": 0,
-      "completed": false
-    },
-    {
-      "id": 5,
-      "title": "プログラミング学習",
-      "content": "学習中",
-      "createDate": "2021/8/10",
-      "updateDate": "2021/8/10",
-      "likes": 0,
-      "completed": false
-    },
-    {
-      "id": 6,
-      "title": "更新がうまくいってる？",
-      "content": "自動で表示もされるようになっている気がする",
-      "createDate": "2021/8/10",
-      "updateDate": "2021/8/10",
-      "likes": 0,
-      "completed": false
-    },
-    {
-      "id": 7,
-      "title": "ああああああああああああああああああああああああああああああああああああああああああああああああああああああ",
-      "content": "ああああああああああああああああああああああああああああああああああああああああああああああああああああ",
+      "title": "うるさいやつがいるなぁ",
+      "content": "へんなおばさん。やっぴーって言ってる",
       "createDate": "2021/8/10",
       "updateDate": "2021/8/10",
       "likes": 0,
@@ -65,11 +38,11 @@
     }
   ],
   "selectedBlog": {
-    "id": 1,
-    "title": "こんにちは",
-    "content": "こんにちはテスト",
-    "createDate": "2021/8/9",
-    "updateDate": "2021/8/9",
+    "id": 4,
+    "title": "うるさいやつがいるなぁ",
+    "content": "へんなおばさん。やっぴーって言ってる",
+    "createDate": "2021/8/10",
+    "updateDate": "2021/8/10",
     "likes": 0,
     "completed": false
   }

@@ -1,10 +1,6 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState, AppThunk } from '../../app/store';
-// import { fetchCount } from './counterAPI';
-import blogs from "../../apis/blogs"
-import { iteratorSymbol } from 'immer/dist/internal';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { RootState } from '../../app/store';
 import axios from 'axios';
-import { stringify } from 'querystring';
 
 export interface BlogState {
 
@@ -27,7 +23,6 @@ const initialState: BlogState = {
 export const fetchBlogs = createAsyncThunk("blog/fetchBlogs", async() => {
   const res = await axios.get('http://localhost:3001/blogs')
   
-  console.log(res.data)
   // レスポンスの整形
   const allBlogs = res.data.map((data:any) => ({
     "id": data.id,
@@ -118,14 +113,28 @@ export const createSelectedBlog = createAsyncThunk("blog/createSelectedBlog", as
 /* --------------------------------------
             blogの編集
 -------------------------------------- */
-type EditBlogType = {
-  title: string,
-  content: string,
-  updateDate: string,
-}
-export const editBlog = createAsyncThunk("blog/editBlog", async({title, content, updateDate}:EditBlogType) => {
 
+export const editBlog = createAsyncThunk("blog/editBlog", async({id, title, content, createDate, updateDate, likes, completed}:BlogState["selectedBlog"]) => {
+
+  // 受け取ったデータを整形
+  const editedSelectedBlog =  {
+    "id": id,
+    "title": title,
+    "content": content,
+    "createDate": createDate,
+    "updateDate": updateDate,
+    "likes": likes,
+    "completed": completed
+  }
+
+  // jsonのselectBlogの値を更新 
+  await axios.put('http://localhost:3001/selectedBlog', editedSelectedBlog)
+  // jsonのidの一致するblogを更新
+  await axios.put(`http://localhost:3001/blogs/${id}`, editedSelectedBlog)
+  
+  return editedSelectedBlog
 })
+
 
 export const blogSlice = createSlice({
   name: 'blog',
