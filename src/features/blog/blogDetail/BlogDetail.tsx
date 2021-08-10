@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router";
 import DeleteModal from "../../../components/UIKit/DeleteModal";
 import scss from "./BlogDetail.module.scss";
 import { selectSelectedBlog } from "../blogSlice";
 
 const BlogDetail = () => {
   const blogData = useSelector(selectSelectedBlog);
+  const history = useHistory();
 
+  const handleLink = () => {
+    history.push(`/edit/${blogData.id}`);
+  };
   return (
     <div className={scss.root}>
       <div className={scss.contents_container}>
@@ -27,7 +32,7 @@ const BlogDetail = () => {
       </div>
       <div className={scss.button_wrapper}>
         <div className={scss.edit}>
-          <button>編集する</button>
+          <button onClick={handleLink}>編集する</button>
         </div>
         <div className={scss.delete}>
           <button>削除する</button>

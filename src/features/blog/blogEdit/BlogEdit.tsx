@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import scss from "./BlogEdit.module.scss";
 import TextField from "@material-ui/core/TextField";
 import { useForm } from "react-hook-form";

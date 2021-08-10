@@ -29,7 +29,7 @@ function App() {
         <div className={scss.main}>
           <Switch>
             <Route exact path="/create" component={BlogForm} />
-            <Route exact path="/edit" component={BlogEdit} />
+            <Route path="/edit/:id" component={BlogEdit} />
             <Route path="/detail/:id" component={BlogDetail} />
             <Route exact path="/list" component={BlogList} />
           </Switch>
