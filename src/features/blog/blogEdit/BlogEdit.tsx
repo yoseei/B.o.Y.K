@@ -1,10 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router";
 import scss from "./BlogEdit.module.scss";
 import TextField from "@material-ui/core/TextField";
 import { useForm } from "react-hook-form";
-import { editBlog } from "../blogSlice";
+import { editBlog, selectSelectedBlog } from "../blogSlice";
 import { fetchBlogs } from "../../blog/blogSlice";
 import { AppDispatch } from "../../../app/store";
 
@@ -23,18 +23,26 @@ const currentDate = `${year}/${month}/${date}`;
 const BlogEdit: React.FC = () => {
   const { register, handleSubmit, reset } = useForm();
   const dispatch: AppDispatch = useDispatch();
+  const selectedBlogData = useSelector(selectSelectedBlog);
+  const history = useHistory();
   // const postsData = useSelector(selectPosts);
 
-  const handleCreate = async (data: Inputs) => {
-    dispatch(
+  const handleEdit = async (data: Inputs) => {
+    await dispatch(
       editBlog({
+        id: selectedBlogData.id,
         title: data.blogTitle,
         content: data.blogContent,
         updateDate: currentDate,
+        createDate: selectedBlogData.createDate,
+        likes: selectedBlogData.likes,
+        completed: selectedBlogData.completed,
       })
     );
     reset();
-    dispatch(fetchBlogs());
+    await dispatch(fetchBlogs());
+    alert("編集しました。");
+    history.push("/list");
   };
 
   return (
@@ -43,11 +51,12 @@ const BlogEdit: React.FC = () => {
         <form
           action=""
           className={scss.form}
-          onSubmit={handleSubmit(handleCreate)}
+          onSubmit={handleSubmit(handleEdit)}
         >
           <div className={scss.title_wrapper}>
             <TextField
               id="outlined-basic"
+              defaultValue={selectedBlogData.title}
               label="タイトル"
               variant="outlined"
               {...register("blogTitle", { required: true })}
@@ -58,6 +67,7 @@ const BlogEdit: React.FC = () => {
             <TextField
               id="outlined-multiline-static"
               label="本文"
+              defaultValue={selectedBlogData.content}
               multiline
               rows={16}
               {...register("blogContent", { required: true })}
@@ -66,11 +76,7 @@ const BlogEdit: React.FC = () => {
             />
             <div className={scss.content_display}></div>
           </div>
-          <button
-            type="submit"
-            className={scss.button}
-            onClick={() => window.alert("編集しました")}
-          >
+          <button type="submit" className={scss.button}>
             編集する
           </button>
         </form>
@@ -80,35 +86,3 @@ const BlogEdit: React.FC = () => {
 };
 
 export default BlogEdit;
-
-// import React from "react";
-// import scss from "./BlogEdit.module.scss";
-
-// const PostsEdit = () => {
-//   return (
-//     <div className={scss.root}>
-//       <div className={scss.title_wrapper}>
-//         <p>タイトル</p>
-//         <input></input>
-//       </div>
-//       <div className={scss.contents_preview_container}>
-//         <div className={scss.contents_wrapper}>
-//           <p>入力欄</p>
-//           <textarea></textarea>
-//         </div>
-//         <div className={scss.preview_wrapper}>
-//           <p>プレビュー</p>
-//           <div className={scss.preview_area}></div>
-//         </div>
-//       </div>
-//       <div className={scss.button_wrapper}>
-//         {/* <PrimaryButton
-//           text={"編集する"}
-//           onClick={() => console.log("click!")}
-//         /> */}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default PostsEdit;
