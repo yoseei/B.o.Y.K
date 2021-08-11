@@ -79,31 +79,17 @@ export const createBlog = createAsyncThunk("blog/createBlog", async({title, cont
     "likes": data.likes,
     "completed": data.completed
   }))
-
-  const blogNumber = allBlogs.length;
   
-  await axios.post("http://localhost:3001/blogs", {
-    id: blogNumber+1,
+  const maxId = allBlogs.pop.id;
+  
+  await axios.post("http://localhost:3001/blogs", {   
+    id:maxId+1,  
     title: title,
     content: content,
     createDate: createDate,
     updateDate: createDate,
     likes: 0,
     completed: false,
-  }).catch(function (error) {
-    if (error.response) {
-        
-        console.log(error.response.data);
-        console.log(error.response.status);      // 例：400
-        console.log(error.response.statusText);  // Bad Request
-        console.log(error.response.headers);
-    } else if (error.request) {
-        
-        console.log(error.request);
-    } else {
-        console.log('Error', error.message);
-    }
-    console.log(error.config);
   })
 })
 /* --------------------------------------
@@ -116,10 +102,14 @@ export const createSelectedBlog = createAsyncThunk("blog/createSelectedBlog", as
     "id": id,
     "title": title,
     "content": content,
-    "createDate": createDate,
+    "createDate": createDate,  
     "updateDate": updateDate,
     "likes": likes,
     "completed": completed
+  }).then(function(response) {
+    console.log(response);
+  }).catch(function(error) {
+    console.log(error);
   })
 })
 /* --------------------------------------
