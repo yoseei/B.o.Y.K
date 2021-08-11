@@ -167,6 +167,27 @@ export const changeCompleted = createAsyncThunk("blog/changeCompleted", async({i
   return editedSelectedBlog
 })
 
+/* --------------------------------------
+            likesを増やす
+-------------------------------------- */
+export const changeLikes = createAsyncThunk("blog/changeLikes", async({id, title, content, createDate, updateDate, likes, completed}:BlogState["selectedBlog"]) => {
+
+   // 受け取ったデータを整形
+   const blogData =  {
+    "id": id,
+    "title": title,
+    "content": content,
+    "createDate": createDate,
+    "updateDate": updateDate,
+    "likes": likes+1,
+    "completed": completed,
+  }
+  await axios.put(`http://localhost:3001/blogs/${id}`, blogData)
+  await axios.put(`http://localhost:3001/selectedBlog`, blogData)
+  
+})
+
+// blogSlice
 export const blogSlice = createSlice({
   name: 'blog',
   initialState,
@@ -189,9 +210,7 @@ export const blogSlice = createSlice({
       // action.payload === return selectedBlogData
       state.selectedBlog = action.payload
     })
-    // builder.addCase(changeCompleted.fulfilled, (state, action) => {
-    //   // state.blogs = action.payload
-    // })
+  
   }
 });
 

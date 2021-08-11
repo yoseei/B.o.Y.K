@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import DeleteModal from "../../../components/UIKit/DeleteModal";
 import scss from "./BlogDetail.module.scss";
 import {
+  changeLikes,
+  fetchBlogs,
   handleModalOpen,
   selectIsModalOpen,
   selectSelectedBlog,
@@ -11,7 +13,8 @@ import {
 import { AppDispatch } from "../../../app/store";
 
 const BlogDetail = () => {
-  const blogData = useSelector(selectSelectedBlog);
+  const selectedBlogData = useSelector(selectSelectedBlog);
+  const [likes, setLikes] = useState<number>(selectedBlogData.likes);
   const isModalOpen = useSelector(selectIsModalOpen);
   const history = useHistory();
   const dispatch: AppDispatch = useDispatch();
@@ -20,30 +23,46 @@ const BlogDetail = () => {
     dispatch(handleModalOpen(false));
   }, []);
 
-  const handleLink = () => {
-    history.push(`/edit/${blogData.id}`);
+  useEffect(() => {
+    dispatch(fetchBlogs());
+  }, []);
+
+  const handleLink = async () => {
+    await dispatch(fetchBlogs());
+    history.push(`/edit/${selectedBlogData.id}`);
   };
 
   const handleDelete = async () => {
     dispatch(handleModalOpen(true));
   };
 
+  const handleLikes = async () => {
+    await dispatch(changeLikes(selectedBlogData));
+    await dispatch(fetchBlogs());
+    setLikes(selectedBlogData.likes + 1);
+  };
+  console.log(selectedBlogData);
   return (
     <div className={scss.root}>
       <div className={scss.contents_container}>
         <div className={scss.title_wrapper}>
-          <p className={scss.title}>{blogData.title}</p>
+          <p className={scss.title}>{selectedBlogData.title}</p>
         </div>
         <div className={scss.updateDate_likes_wrapper}>
           <div className={scss.updateDate_wrapper}>
-            <p>最終更新日時： {blogData.updateDate}</p>
+            <p>最終更新日時： {selectedBlogData.updateDate}</p>
           </div>
           <div className={scss.likes_wrapper}>
-            <p>♥{blogData.likes} いいね</p>
+            <p>
+              ♥{likes}
+              <span onClick={handleLikes} className={scss.like}>
+                いいね！
+              </span>
+            </p>
           </div>
         </div>
         <div className={scss.text_wrapper}>
-          <p>{blogData.content}</p>
+          <p>{selectedBlogData.content}</p>
         </div>
       </div>
       <div className={scss.button_wrapper}>
