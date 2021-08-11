@@ -20,6 +20,17 @@
       .updateDate_wrapper {
         margin-right: 50px;
       }
+      .likes_wrapper {
+        p {
+          .like {
+            cursor: pointer;
+            transition: all 0.3s;
+            &:hover {
+              color: red;
+            }
+          }
+        }
+      }
     }
     .text_wrapper {
       width: 80%;
