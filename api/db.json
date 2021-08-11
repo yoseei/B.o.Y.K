@@ -2,21 +2,30 @@
   "blogs": [
     {
       "id": 1,
-      "title": "初投稿（編集後2）",
-      "content": "初投稿です！\nブログは楽しい！\n",
+      "title": "aaaaaaa",
+      "content": "aaaaaaaaa",
       "createDate": "2021/8/11",
       "updateDate": "2021/8/11",
       "likes": 0,
-      "completed": false
+      "completed": true
+    },
+    {
+      "id": 2,
+      "title": "テスト投稿",
+      "content": "テストです！",
+      "createDate": "2021/8/11",
+      "updateDate": "2021/8/11",
+      "likes": 0,
+      "completed": true
     }
   ],
   "selectedBlog": {
-    "id": 1,
-    "title": "初投稿（編集後2）",
-    "content": "初投稿です！\nブログは楽しい！\n",
+    "id": 2,
+    "title": "テスト投稿",
+    "content": "テストです！",
     "createDate": "2021/8/11",
     "updateDate": "2021/8/11",
     "likes": 0,
-    "completed": false
+    "completed": true
   }
 }

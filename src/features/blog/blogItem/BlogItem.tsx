@@ -4,6 +4,7 @@ import scss from "./BlogItem.module.scss";
 import { Checkbox } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import {
+  changeCompleted,
   createSelectedBlog,
   fetchBlogs,
   fetchSelectedBlog,
@@ -31,10 +32,14 @@ const BlogItem: React.FC<PropTypes> = ({ blog }) => {
     await dispatch(fetchBlogs());
     history.push(`/detail/${blog.id}`);
   };
+  const handleCheckBox = async () => {
+    await dispatch(changeCompleted(blog));
+    await dispatch(fetchBlogs());
+  };
   return (
     <div className={scss.root}>
       <div className={scss.checkBox}>
-        <Checkbox checked={blog.completed} />
+        <Checkbox checked={blog.completed} onClick={handleCheckBox} />
       </div>
       <div className={scss.id}>{blog.id}</div>
       <div className={scss.title} onClick={handleLink}>

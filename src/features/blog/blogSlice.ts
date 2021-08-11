@@ -145,6 +145,28 @@ export const deleteBlog = createAsyncThunk("blog/DeleteBlog", async(id: number) 
   await axios.delete(`http://localhost:3001/blogs/${selectedId}`)
 })
 
+/* --------------------------------------
+            completedの切り替え
+-------------------------------------- */
+export const changeCompleted = createAsyncThunk("blog/changeCompleted", async({id, title, content, createDate, updateDate, likes, completed}:BlogState["selectedBlog"]) => {
+  
+   // 受け取ったデータを整形
+   const editedSelectedBlog =  {
+    "id": id,
+    "title": title,
+    "content": content,
+    "createDate": createDate,
+    "updateDate": updateDate,
+    "likes": likes,
+    "completed": !completed,
+  }
+  const selectedId = id;
+  await axios.put(`http://localhost:3001/selectedBlog/`, editedSelectedBlog)
+  await axios.put(`http://localhost:3001/blogs/${selectedId}`, editedSelectedBlog)
+
+  return editedSelectedBlog
+})
+
 export const blogSlice = createSlice({
   name: 'blog',
   initialState,
@@ -167,6 +189,9 @@ export const blogSlice = createSlice({
       // action.payload === return selectedBlogData
       state.selectedBlog = action.payload
     })
+    // builder.addCase(changeCompleted.fulfilled, (state, action) => {
+    //   // state.blogs = action.payload
+    // })
   }
 });
 
