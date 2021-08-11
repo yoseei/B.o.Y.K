@@ -10,6 +10,7 @@ import BlogForm from "./features/blog/blogForm/BlogForm";
 import BlogDetail from "./features/blog/blogDetail/BlogDetail";
 import BlogEdit from "./features/blog/blogEdit/BlogEdit";
 import BlogList from "./features/blog/blogList/BlogList";
+import SignIn from "./features/user/userSignIn/UserSignIn";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Header />
         <div className={scss.main}>
           <Switch>
+            <Route exact path="/signin" component={SignIn} />
             <Route exact path="/create" component={BlogForm} />
             <Route path="/edit/:id" component={BlogEdit} />
             <Route path="/detail/:id" component={BlogDetail} />
