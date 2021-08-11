@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import DeleteModal from "../../../components/UIKit/DeleteModal";
 import scss from "./BlogDetail.module.scss";
 import {
-  deleteBlog,
-  fetchBlogs,
   handleModalOpen,
   selectIsModalOpen,
   selectSelectedBlog,
@@ -21,21 +19,13 @@ const BlogDetail = () => {
   useEffect(() => {
     dispatch(handleModalOpen(false));
   }, []);
-  console.log(isModalOpen);
 
   const handleLink = () => {
     history.push(`/edit/${blogData.id}`);
   };
 
-  const selectedId = blogData.id;
   const handleDelete = async () => {
     dispatch(handleModalOpen(true));
-    // if (isModalOpen) {
-    //   await dispatch(deleteBlog(selectedId));
-    //   await dispatch(fetchBlogs());
-    //   alert("記事を削除しました。");
-    //   history.push("/list");
-    // }
   };
 
   return (

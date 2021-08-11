@@ -97,7 +97,6 @@ export const createBlog = createAsyncThunk("blog/createBlog", async({title, cont
 -------------------------------------- */
 
 export const createSelectedBlog = createAsyncThunk("blog/createSelectedBlog", async({id, title, content, createDate, updateDate, likes, completed}:BlogState["selectedBlog"])=> {
-  // const blogData = {id, title, content, createDate, updateDate, likes, completed}
   await axios.post('http://localhost:3001/selectedBlog', {
     "id": id,
     "title": title,
