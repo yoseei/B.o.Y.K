@@ -18,6 +18,11 @@
     width: 20%;
     border-right: 1px solid #00000020;
     text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover {
+      color: red;
+    }
   }
   .createDate {
     width: 20%;

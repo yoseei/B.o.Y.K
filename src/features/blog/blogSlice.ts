@@ -90,8 +90,21 @@ export const createBlog = createAsyncThunk("blog/createBlog", async({title, cont
     updateDate: createDate,
     likes: 0,
     completed: false,
+  }).catch(function (error) {
+    if (error.response) {
+        
+        console.log(error.response.data);
+        console.log(error.response.status);      // 例：400
+        console.log(error.response.statusText);  // Bad Request
+        console.log(error.response.headers);
+    } else if (error.request) {
+        
+        console.log(error.request);
+    } else {
+        console.log('Error', error.message);
+    }
+    console.log(error.config);
   })
-
 })
 /* --------------------------------------
             selectedBlogの作成
@@ -109,7 +122,6 @@ export const createSelectedBlog = createAsyncThunk("blog/createSelectedBlog", as
     "completed": completed
   })
 })
-
 /* --------------------------------------
             blogの編集
 -------------------------------------- */
@@ -135,6 +147,14 @@ export const editBlog = createAsyncThunk("blog/editBlog", async({id, title, cont
   return editedSelectedBlog
 })
 
+/* --------------------------------------
+            blogの削除
+-------------------------------------- */
+export const deleteBlog = createAsyncThunk("blog/DeleteBlog", async(id: number) => {
+  const selectedId = id
+  
+  await axios.delete(`http://localhost:3001/blogs/${selectedId}`)
+})
 
 export const blogSlice = createSlice({
   name: 'blog',

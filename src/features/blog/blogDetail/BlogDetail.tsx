@@ -3,15 +3,41 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import DeleteModal from "../../../components/UIKit/DeleteModal";
 import scss from "./BlogDetail.module.scss";
-import { selectSelectedBlog } from "../blogSlice";
+import {
+  deleteBlog,
+  fetchBlogs,
+  handleModalOpen,
+  selectIsModalOpen,
+  selectSelectedBlog,
+} from "../blogSlice";
+import { AppDispatch } from "../../../app/store";
 
 const BlogDetail = () => {
   const blogData = useSelector(selectSelectedBlog);
+  const isModalOpen = useSelector(selectIsModalOpen);
   const history = useHistory();
+  const dispatch: AppDispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(handleModalOpen(false));
+  }, []);
+  console.log(isModalOpen);
 
   const handleLink = () => {
     history.push(`/edit/${blogData.id}`);
   };
+
+  const selectedId = blogData.id;
+  const handleDelete = async () => {
+    dispatch(handleModalOpen(true));
+    // if (isModalOpen) {
+    //   await dispatch(deleteBlog(selectedId));
+    //   await dispatch(fetchBlogs());
+    //   alert("記事を削除しました。");
+    //   history.push("/list");
+    // }
+  };
+
   return (
     <div className={scss.root}>
       <div className={scss.contents_container}>
@@ -35,9 +61,10 @@ const BlogDetail = () => {
           <button onClick={handleLink}>編集する</button>
         </div>
         <div className={scss.delete}>
-          <button>削除する</button>
+          <button onClick={handleDelete}>削除する</button>
         </div>
       </div>
+      {isModalOpen ? <DeleteModal /> : null}
     </div>
   );
 };

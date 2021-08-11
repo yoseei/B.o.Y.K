@@ -1,17 +1,37 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
 import Modal from "@material-ui/core/Modal";
 import scss from "./DeleteModal.module.scss";
-import PrimaryButton from "./PrimaryButton";
-
+import {
+  deleteBlog,
+  fetchBlogs,
+  handleModalOpen,
+  selectIsModalOpen,
+  selectSelectedBlog,
+} from "../../features/blog/blogSlice";
+import { AppDispatch } from "../../app/store";
 const DeleteModal = () => {
-  const [open, setOpen] = useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
+  const [open, setOpen] = useState(true);
+  const blogData = useSelector(selectSelectedBlog);
+  const dispatch: AppDispatch = useDispatch();
+  const history = useHistory();
+  const isModalOpen = useSelector(selectIsModalOpen);
 
   const handleClose = () => {
     setOpen(false);
+    dispatch(handleModalOpen(false));
+  };
+
+  const selectedId = blogData.id;
+  const handleDelete = async () => {
+    dispatch(handleModalOpen(true));
+    if (isModalOpen) {
+      await dispatch(deleteBlog(selectedId));
+      await dispatch(fetchBlogs());
+      alert("記事を削除しました。");
+      history.push("/list");
+    }
   };
 
   const body = (
@@ -20,20 +40,20 @@ const DeleteModal = () => {
         <p className={scss.confirm}>本当に削除してもよろしいですか？</p>
       </div>
       <div className={scss.delete_wrapper}>
-        <p className={scss.delete}>削除する</p>
+        <p className={scss.delete} onClick={handleDelete}>
+          削除する
+        </p>
       </div>
-      <div className={scss.cancel_wrapper} onClick={handleClose}>
-        <p className={scss.cancel}>キャンセル</p>
+      <div className={scss.cancel_wrapper}>
+        <p className={scss.cancel} onClick={handleClose}>
+          キャンセル
+        </p>
       </div>
     </div>
   );
 
   return (
     <div>
-      {/* <button type="button" onClick={handleOpen}>
-        delete
-      </button> */}
-      {/* <PrimaryButton text={"削除する"} onClick={handleOpen} /> */}
       <Modal open={open} onClose={handleClose}>
         {body}
       </Modal>

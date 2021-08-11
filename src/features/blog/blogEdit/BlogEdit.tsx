@@ -14,13 +14,12 @@ type Inputs = {
   updateDate: string;
 };
 
-const DD = new Date();
-const year = DD.getFullYear();
-const month = DD.getMonth() + 1;
-const date = DD.getDate();
-const currentDate = `${year}/${month}/${date}`;
-
 const BlogEdit: React.FC = () => {
+  const DD = new Date();
+  const year = DD.getFullYear();
+  const month = DD.getMonth() + 1;
+  const date = DD.getDate();
+  const currentDate = `${year}/${month}/${date}`;
   const { register, handleSubmit, reset } = useForm();
   const dispatch: AppDispatch = useDispatch();
   const selectedBlogData = useSelector(selectSelectedBlog);
