@@ -1,5 +1,8 @@
 {
-  "user": {},
+  "userData": {
+    "email": "guest@example.com",
+    "password": "password"
+  },
   "blogs": [
     {
       "id": 1,
