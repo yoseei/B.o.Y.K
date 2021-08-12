@@ -1,5 +1,8 @@
 {
-  "user": {},
+  "userData": {
+    "email": "guest@example.com",
+    "password": "password"
+  },
   "blogs": [
     {
       "id": 1,
@@ -30,12 +33,12 @@
     }
   ],
   "selectedBlog": {
-    "id": 2,
-    "title": "はじめまして２",
-    "content": "僕はヨシヲですよ",
+    "id": 1,
+    "title": "こんにちは赤ちゃん",
+    "content": "私がママよ",
     "createDate": "2021/8/11",
     "updateDate": "2021/8/12",
-    "likes": 4,
+    "likes": 8,
     "completed": false
   }
 }

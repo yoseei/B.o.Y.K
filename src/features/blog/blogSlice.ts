@@ -17,7 +17,6 @@ const initialState: BlogState = {
   isModalOpen: false,
 };
 
-
 /* --------------------------------------
             blogの全件取得
 -------------------------------------- */
@@ -140,7 +139,7 @@ export const editBlog = createAsyncThunk("blog/editBlog", async({id, title, cont
 /* --------------------------------------
             blogの削除
 -------------------------------------- */
-export const deleteBlog = createAsyncThunk("blog/DeleteBlog", async(id: number) => {
+export const deleteBlog = createAsyncThunk("blog/deleteBlog", async(id: number) => {
   const selectedId = id
   
   await axios.delete(`http://localhost:3001/blogs/${selectedId}`)

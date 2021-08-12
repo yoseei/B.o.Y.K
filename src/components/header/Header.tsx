@@ -1,15 +1,21 @@
 import React from "react";
 import { auth } from "../../firebase";
+// import { deleteUserData, selectUserData } from "../../features/user/userSlice";
 import { Link } from "react-router-dom";
 import scss from "./Header.module.scss";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
+import { AppDispatch } from "../../app/store";
 
 const Header: React.FC = () => {
   const history = useHistory();
+  const dispatch: AppDispatch = useDispatch();
+  // const userData = useSelector(selectUserData);
 
   const handleSignOut = async () => {
     try {
       await auth.signOut();
+      // await dispatch(deleteUserData(userData));
       history.push("/signin");
     } catch (err) {
       alert(err.message);
