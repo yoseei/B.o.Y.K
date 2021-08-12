@@ -1,0 +1,19 @@
+.root {
+  display: flex;
+
+  gap: 20px;
+  padding: 40px 60px;
+  overflow: auto;
+
+  .mde {
+    flex: 1;
+    font-size: 1.5rem;
+  }
+  .preview {
+    flex: 1;
+    font-size: 1.5rem;
+    padding: 20px 40px;
+    background-color: white;
+    overflow: auto;
+  }
+}
