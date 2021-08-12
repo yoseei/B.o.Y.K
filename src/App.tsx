@@ -1,19 +1,25 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { AppDispatch } from "./app/store";
-import { fetchBlogs } from "./features/blog/blogSlice";
-import { Counter } from "./features/counter/Counter";
-import Header from "./components/header/Header";
-import scss from "./App.module.scss";
-import Footer from "./components/footer/Footer";
+import { auth } from "./firebase";
 import BlogForm from "./features/blog/blogForm/BlogForm";
 import BlogDetail from "./features/blog/blogDetail/BlogDetail";
 import BlogEdit from "./features/blog/blogEdit/BlogEdit";
 import BlogList from "./features/blog/blogList/BlogList";
+import { Counter } from "./features/counter/Counter";
+import { fetchBlogs } from "./features/blog/blogSlice";
+import Footer from "./components/footer/Footer";
+import Header from "./components/header/Header";
+import scss from "./App.module.scss";
 import SignIn from "./features/user/userSignIn/UserSignIn";
-import { Switch, Route, BrowserRouter } from "react-router-dom";
+import {
+  Switch,
+  Route,
+  BrowserRouter,
+  RouteComponentProps,
+} from "react-router-dom";
+import { useDispatch } from "react-redux";
 
-function App() {
+const App: React.FC<RouteComponentProps> = (props) => {
   const dispatch: AppDispatch = useDispatch();
 
   useEffect(() => {
@@ -21,6 +27,12 @@ function App() {
       dispatch(fetchBlogs());
     };
     getData();
+  }, []);
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      !user && props.history.push("/signin");
+    });
   }, []);
 
   return (
@@ -33,13 +45,13 @@ function App() {
             <Route exact path="/create" component={BlogForm} />
             <Route path="/edit/:id" component={BlogEdit} />
             <Route path="/detail/:id" component={BlogDetail} />
-            <Route exact path="/list" component={BlogList} />
+            <Route exact path="/" component={BlogList} />
           </Switch>
         </div>
         <Footer />
       </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;

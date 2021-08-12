@@ -1,12 +1,12 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router";
-import scss from "./BlogEdit.module.scss";
-import TextField from "@material-ui/core/TextField";
-import { useForm } from "react-hook-form";
+import { AppDispatch } from "../../../app/store";
 import { editBlog, selectSelectedBlog } from "../blogSlice";
 import { fetchBlogs } from "../../blog/blogSlice";
-import { AppDispatch } from "../../../app/store";
+import { RouteComponentProps } from "react-router-dom";
+import scss from "./BlogEdit.module.scss";
+import TextField from "@material-ui/core/TextField";
+import { useDispatch, useSelector } from "react-redux";
+import { useForm } from "react-hook-form";
 
 type Inputs = {
   blogTitle: string;
@@ -14,7 +14,7 @@ type Inputs = {
   updateDate: string;
 };
 
-const BlogEdit: React.FC = () => {
+const BlogEdit: React.FC<RouteComponentProps> = (props) => {
   const DD = new Date();
   const year = DD.getFullYear();
   const month = DD.getMonth() + 1;
@@ -23,8 +23,6 @@ const BlogEdit: React.FC = () => {
   const { register, handleSubmit, reset } = useForm();
   const dispatch: AppDispatch = useDispatch();
   const selectedBlogData = useSelector(selectSelectedBlog);
-  const history = useHistory();
-  // const postsData = useSelector(selectPosts);
 
   const handleEdit = async (data: Inputs) => {
     await dispatch(
@@ -41,7 +39,7 @@ const BlogEdit: React.FC = () => {
     reset();
     await dispatch(fetchBlogs());
     alert("編集しました。");
-    history.push("/list");
+    props.history.push("/");
   };
 
   return (

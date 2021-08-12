@@ -1,11 +1,12 @@
+import { auth } from "../../../firebase";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
-import { RouteComponentProps } from "react-router";
+import { makeStyles } from "@material-ui/core/styles";
+import { RouteComponentProps } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import { useForm } from "react-hook-form";
-import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -31,8 +32,9 @@ type AuthDataTypes = {
   email: string;
   password: string;
 };
-const SignIn: React.FC<RouteComponentProps> = (props) => {
+const UserSignIn: React.FC<RouteComponentProps> = (props) => {
   const classes = useStyles();
+
   const {
     register,
     handleSubmit,
@@ -43,7 +45,7 @@ const SignIn: React.FC<RouteComponentProps> = (props) => {
   const handleSignIn = async (data: AuthDataTypes) => {
     const { email, password } = data;
     try {
-      // await auth.signInWithEmailAndPassword(email, password);
+      await auth.signInWithEmailAndPassword(email, password);
       props.history.push("/");
     } catch (err) {
       alert(err.message);
@@ -96,7 +98,7 @@ const SignIn: React.FC<RouteComponentProps> = (props) => {
             color="primary"
             className={classes.submit}
           >
-            ログインする
+            管理者としてログインする
           </Button>
         </form>
       </div>
@@ -104,4 +106,4 @@ const SignIn: React.FC<RouteComponentProps> = (props) => {
   );
 };
 
-export default SignIn;
+export default UserSignIn;
