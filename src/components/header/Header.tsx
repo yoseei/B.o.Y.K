@@ -1,6 +1,6 @@
 import React from "react";
 import { auth } from "../../firebase";
-// import { deleteUserData, selectUserData } from "../../features/user/userSlice";
+import { deleteUserData, selectUserData } from "../../features/user/userSlice";
 import { Link } from "react-router-dom";
 import scss from "./Header.module.scss";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,7 +15,7 @@ const Header: React.FC = () => {
   const handleSignOut = async () => {
     try {
       await auth.signOut();
-      // await dispatch(deleteUserData(userData));
+      await dispatch(deleteUserData());
       history.push("/signin");
     } catch (err) {
       alert(err.message);

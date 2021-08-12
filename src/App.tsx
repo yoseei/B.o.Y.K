@@ -18,13 +18,15 @@ import {
   RouteComponentProps,
 } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { fetchUser } from "./features/user/userSlice";
 
 const App: React.FC<RouteComponentProps> = (props) => {
   const dispatch: AppDispatch = useDispatch();
 
   useEffect(() => {
-    const getData = () => {
-      dispatch(fetchBlogs());
+    const getData = async () => {
+      await dispatch(fetchBlogs());
+      await dispatch(fetchUser());
     };
     getData();
   }, []);
