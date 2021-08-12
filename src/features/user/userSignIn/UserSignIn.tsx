@@ -52,6 +52,20 @@ const UserSignIn: React.FC<RouteComponentProps> = (props) => {
     }
   };
 
+  const guest = async (email: string, password: string) => {
+    return await auth.signInWithEmailAndPassword(email, password);
+  };
+
+  const handleGuestSignIn = async () => {
+    return await guest("guest@example.com", "password")
+      .then(() => {
+        props.history.push("/");
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
+  };
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -99,6 +113,16 @@ const UserSignIn: React.FC<RouteComponentProps> = (props) => {
             className={classes.submit}
           >
             管理者としてログインする
+          </Button>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="secondary"
+            className={classes.submit}
+            onClick={handleGuestSignIn}
+          >
+            ゲストとしてログインする
           </Button>
         </form>
       </div>
