@@ -1,12 +1,12 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch } from "../../../app/store";
+import { createBlog } from "../blogSlice";
+import { fetchBlogs } from "../../blog/blogSlice";
+import { RouteComponentProps, useHistory } from "react-router-dom";
 import scss from "./BlogForm.module.scss";
 import TextField from "@material-ui/core/TextField";
+import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
-import { createBlog, selectBlogs } from "../blogSlice";
-import { fetchBlogs } from "../../blog/blogSlice";
-import { AppDispatch } from "../../../app/store";
 
 type Inputs = {
   blogTitle: string;
@@ -19,10 +19,9 @@ const month = DD.getMonth() + 1;
 const date = DD.getDate();
 const currentDate = `${year}/${month}/${date}`;
 
-const BlogForm: React.FC = () => {
+const BlogForm: React.FC<RouteComponentProps> = (props) => {
   const { register, handleSubmit, reset } = useForm();
   const dispatch: AppDispatch = useDispatch();
-  const history = useHistory();
 
   const handleCreate = async (data: Inputs) => {
     await dispatch(
@@ -34,7 +33,7 @@ const BlogForm: React.FC = () => {
     );
     reset();
     await dispatch(fetchBlogs());
-    history.push("/list");
+    props.history.push("/");
   };
 
   return (
