@@ -5,7 +5,6 @@ import BlogForm from "./features/blog/blogForm/BlogForm";
 import BlogDetail from "./features/blog/blogDetail/BlogDetail";
 import BlogEdit from "./features/blog/blogEdit/BlogEdit";
 import BlogList from "./features/blog/blogList/BlogList";
-import { Counter } from "./features/counter/Counter";
 import { fetchBlogs } from "./features/blog/blogSlice";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";

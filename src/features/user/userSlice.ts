@@ -72,9 +72,6 @@ export const userSlice = createSlice({
 
 // export const { } = userSlice.actions;
 
-
 export const selectUserData = (state: RootState):UserState["userData"] => state.user.userData;
-// export const selectSelectedBlog = (state: RootState):UserState["selectedBlog"] => state.blog.selectedBlog;
-// export const selectIsModalOpen = (state: RootState):UserState["isModalOpen"] => state.blog.isModalOpen;
 
 export default userSlice.reducer;

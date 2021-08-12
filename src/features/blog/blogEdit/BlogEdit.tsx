@@ -1,9 +1,10 @@
 import React from "react";
+import scss from "./BlogEdit.module.scss";
 import { AppDispatch } from "../../../app/store";
 import { editBlog, selectSelectedBlog } from "../blogSlice";
 import { fetchBlogs } from "../../blog/blogSlice";
 import { RouteComponentProps } from "react-router-dom";
-import scss from "./BlogEdit.module.scss";
+import { selectUserData } from "../../user/userSlice";
 import TextField from "@material-ui/core/TextField";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
@@ -20,9 +21,12 @@ const BlogEdit: React.FC<RouteComponentProps> = (props) => {
   const month = DD.getMonth() + 1;
   const date = DD.getDate();
   const currentDate = `${year}/${month}/${date}`;
-  const { register, handleSubmit, reset } = useForm();
+
   const dispatch: AppDispatch = useDispatch();
+  const { register, handleSubmit, reset } = useForm();
   const selectedBlogData = useSelector(selectSelectedBlog);
+  const userData = useSelector(selectUserData);
+  const userEmail = userData.email === "guest@example.com";
 
   const handleEdit = async (data: Inputs) => {
     await dispatch(
