@@ -1,16 +1,17 @@
 import React from "react";
+import scss from "./Header.module.scss";
+import { AppDispatch } from "../../app/store";
 import { auth } from "../../firebase";
 import { deleteUserData, selectUserData } from "../../features/user/userSlice";
 import { Link } from "react-router-dom";
-import scss from "./Header.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
-import { AppDispatch } from "../../app/store";
 
 const Header: React.FC = () => {
-  const history = useHistory();
   const dispatch: AppDispatch = useDispatch();
-  // const userData = useSelector(selectUserData);
+  const history = useHistory();
+  const userData = useSelector(selectUserData);
+  const userEmail = userData.email;
 
   const handleSignOut = async () => {
     try {
@@ -29,14 +30,16 @@ const Header: React.FC = () => {
             <h1>B.o.Y.K</h1>
           </Link>
         </div>
-        <div className={scss.createPost_signOut_wrapper}>
-          <p className={scss.createPost}>
-            <Link to="/create">新規投稿</Link>
-          </p>
-          <p onClick={handleSignOut} className={scss.signOut}>
-            ログアウト
-          </p>
-        </div>
+        {userEmail === "guest@example.com" ? null : (
+          <div className={scss.createPost_signOut_wrapper}>
+            <p className={scss.createPost}>
+              <Link to="/create">新規投稿</Link>
+            </p>
+            <p onClick={handleSignOut} className={scss.signOut}>
+              ログアウト
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );

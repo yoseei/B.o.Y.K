@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router";
-import DeleteModal from "../../../components/UIKit/DeleteModal";
 import scss from "./BlogDetail.module.scss";
+import { AppDispatch } from "../../../app/store";
+import DeleteModal from "../../../components/UIKit/DeleteModal";
 import {
   changeLikes,
   fetchBlogs,
@@ -10,14 +9,19 @@ import {
   selectIsModalOpen,
   selectSelectedBlog,
 } from "../blogSlice";
-import { AppDispatch } from "../../../app/store";
+import { selectUserData } from "../../user/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { RouteComponentProps, useHistory } from "react-router";
 
-const BlogDetail = () => {
+const BlogDetail: React.FC<RouteComponentProps> = (props) => {
   const selectedBlogData = useSelector(selectSelectedBlog);
   const [likes, setLikes] = useState<number>(selectedBlogData.likes);
-  const isModalOpen = useSelector(selectIsModalOpen);
-  const history = useHistory();
+
   const dispatch: AppDispatch = useDispatch();
+  const history = useHistory();
+  const isModalOpen = useSelector(selectIsModalOpen);
+  const userData = useSelector(selectUserData);
+  const userEmail = userData.email === "guest@example.com";
 
   useEffect(() => {
     dispatch(handleModalOpen(false));
@@ -27,13 +31,18 @@ const BlogDetail = () => {
     dispatch(fetchBlogs());
   }, []);
 
-  const handleLink = async () => {
-    await dispatch(fetchBlogs());
-    history.push(`/edit/${selectedBlogData.id}`);
-  };
-
   const handleDelete = async () => {
     dispatch(handleModalOpen(true));
+  };
+
+  const handleLink = async () => {
+    await dispatch(fetchBlogs());
+    props.history.push(`/edit/${selectedBlogData.id}`);
+  };
+
+  const handleLinkTop = async () => {
+    // await dispatch(fetchBlogs());
+    props.history.push("/");
   };
 
   const handleLikes = async () => {
@@ -41,7 +50,7 @@ const BlogDetail = () => {
     await dispatch(fetchBlogs());
     setLikes(selectedBlogData.likes + 1);
   };
-  console.log(selectedBlogData);
+
   return (
     <div className={scss.root}>
       <div className={scss.contents_container}>
@@ -66,12 +75,22 @@ const BlogDetail = () => {
         </div>
       </div>
       <div className={scss.button_wrapper}>
-        <div className={scss.edit}>
-          <button onClick={handleLink}>編集する</button>
-        </div>
-        <div className={scss.delete}>
-          <button onClick={handleDelete}>削除する</button>
-        </div>
+        {userEmail ? (
+          <>
+            <div className={scss.edit}>
+              <button onClick={handleLinkTop}>戻る</button>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className={scss.edit}>
+              <button onClick={handleLink}>編集する</button>
+            </div>
+            <div className={scss.delete}>
+              <button onClick={handleDelete}>削除する</button>
+            </div>
+          </>
+        )}
       </div>
       {isModalOpen ? <DeleteModal /> : null}
     </div>

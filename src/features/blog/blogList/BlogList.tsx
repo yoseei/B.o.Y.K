@@ -1,6 +1,3 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-
 import { useSelector } from "react-redux";
 import { selectBlogs } from "../blogSlice";
 import scss from "./BlogList.module.scss";
@@ -31,11 +28,11 @@ const BlogList = () => {
         ))}
       </div>
 
-      <div className={scss.listsNumber_wrapper}>
+      {/* <div className={scss.listsNumber_wrapper}>
         <p className={scss.number}>1-2of2</p>
         <p className={scss.bracket_left}>{"<"}</p>
         <p className={scss.bracket_right}>{">"}</p>
-      </div>
+      </div> */}
     </div>
   );
 };
