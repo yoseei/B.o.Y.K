@@ -1,4 +1,6 @@
 .root {
+  color: rgb(45, 45, 45);
+
   display: flex;
   align-items: center;
   padding: 10px 0;
@@ -21,8 +23,9 @@
     cursor: pointer;
     transition: all 0.3s;
     overflow: hidden;
+    transition: all 0.3s;
     &:hover {
-      color: red;
+      color: #f38ba0;
     }
   }
   .createDate {

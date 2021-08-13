@@ -39,16 +39,21 @@
     }
   }
   .button {
+    color: rgb(45, 45, 45);
     font-size: 1.25rem;
+    background-color: #f38ba0;
+
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 0px;
+    right: 50px;
     width: 150px;
-    height: 45px;
-    transition: all 0.5s;
+    height: 55px;
+    transition: all 0.3s;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
     &:hover {
-      background-color: cornflowerblue;
-      color: aliceblue;
+      background-color: #ffbcbc;
     }
   }
 }

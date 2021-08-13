@@ -1,28 +1,46 @@
 .root {
   width: 100vw;
   .container {
-    background: darksalmon;
+    background: #b5eaea;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 100px;
     .title_wrapper {
       a {
+        font-size: 1.25rem;
         text-decoration: none;
-        color: black;
+        color: rgb(45, 45, 45);
+        transition: all 0.3s;
+        &:hover {
+          color: #f38ba0;
+        }
       }
     }
     .createPost_signOut_wrapper {
       display: flex;
-      gap: 20px;
+      gap: 30px;
       .createPost {
         a {
+          font-size: 1.25rem;
           text-decoration: none;
-          color: black;
+          color: rgb(45, 45, 45);
+          transition: all 0.3s;
+          &:hover {
+            color: #f38ba0;
+          }
         }
       }
       .signOut {
+        font-size: 1.25rem;
+
         cursor: pointer;
+        color: rgb(45, 45, 45);
+
+        transition: all 0.3s;
+        &:hover {
+          color: #f38ba0;
+        }
       }
     }
   }
