@@ -11,7 +11,6 @@ import { RouteComponentProps } from "react-router-dom";
 import SimpleMDE from "react-simplemde-editor";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
-import { registerPlugin } from "tern";
 
 type Inputs = {
   blogTitle: string;

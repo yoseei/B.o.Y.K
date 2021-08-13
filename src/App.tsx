@@ -44,12 +44,12 @@ const App: React.FC<RouteComponentProps> = (props) => {
         <div className={scss.main}>
           <Switch>
             <Route exact path="/signin" component={SignIn} />
-            <Route exact path="/create" component={BlogForm} />
+            {/* <Route exact path="/create" component={BlogForm} /> */}
             <Route path="/edit/:id" component={BlogEdit} />
             <Route path="/detail/:id" component={BlogDetail} />
-            {/* <Route exact path="/" component={BlogList} /> */}
+            <Route exact path="/" component={BlogList} />
 
-            <Route exact path="/" component={MarkDown} />
+            <Route exact path="/create" component={MarkDown} />
           </Switch>
         </div>
         <Footer />
