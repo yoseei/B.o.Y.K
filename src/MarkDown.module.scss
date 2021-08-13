@@ -23,7 +23,6 @@
     overflow: auto;
     box-sizing: content-box;
     gap: 1px;
-    margin-top: 3px;
     .mde {
       flex: 1;
       font-size: 1.5rem;
@@ -40,10 +39,16 @@
     }
   }
   .button {
+    font-size: 1.25rem;
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 100px;
+    width: 150px;
     height: 45px;
+    transition: all 0.5s;
+    &:hover {
+      background-color: cornflowerblue;
+      color: aliceblue;
+    }
   }
 }
