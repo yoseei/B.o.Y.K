@@ -9,9 +9,9 @@ import "highlight.js/styles/androidstudio.css";
 import marked from "marked";
 import { RouteComponentProps } from "react-router-dom";
 import SimpleMDE from "react-simplemde-editor";
-import TextField from "@material-ui/core/TextField";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
+import { registerPlugin } from "tern";
 
 type Inputs = {
   blogTitle: string;
@@ -56,13 +56,11 @@ const MarkDown: React.FC<RouteComponentProps> = (props) => {
         onSubmit={handleSubmit(handleCreate)}
       >
         <div className={scss.title_wrapper}>
-          <TextField
-            id="outlined-basic"
-            fullWidth={true}
-            label="タイトル"
-            variant="outlined"
+          <input
+            type="text"
+            defaultValue=""
+            placeholder="タイトル"
             {...register("blogTitle", { required: true })}
-            style={{ padding: "" }}
           />
         </div>
         <div className={scss.mde_container}>
@@ -73,6 +71,13 @@ const MarkDown: React.FC<RouteComponentProps> = (props) => {
             <span dangerouslySetInnerHTML={{ __html: marked(markdown) }} />
           </div>
         </div>
+        <button
+          type="submit"
+          className={scss.button}
+          onClick={() => window.alert("投稿しました")}
+        >
+          投稿する
+        </button>
       </form>
     </div>
   );
