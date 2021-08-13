@@ -63,7 +63,8 @@ const BlogDetail: React.FC<RouteComponentProps> = (props) => {
           </div>
           <div className={scss.likes_wrapper}>
             <p>
-              ♥{likes}
+              <span className={scss.heartIcon}>♥</span>
+              {likes}
               <span onClick={handleLikes} className={scss.like}>
                 いいね！
               </span>
@@ -83,11 +84,15 @@ const BlogDetail: React.FC<RouteComponentProps> = (props) => {
           </>
         ) : (
           <>
-            <div className={scss.edit}>
-              <button onClick={handleLink}>編集する</button>
+            <div>
+              <button onClick={handleLink} className={scss.edit}>
+                編集する
+              </button>
             </div>
-            <div className={scss.delete}>
-              <button onClick={handleDelete}>削除する</button>
+            <div>
+              <button onClick={handleDelete} className={scss.delete}>
+                削除する
+              </button>
             </div>
           </>
         )}

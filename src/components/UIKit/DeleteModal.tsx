@@ -30,7 +30,7 @@ const DeleteModal = () => {
       await dispatch(deleteBlog(selectedId));
       await dispatch(fetchBlogs());
       alert("記事を削除しました。");
-      history.push("/list");
+      history.push("/");
     }
   };
 

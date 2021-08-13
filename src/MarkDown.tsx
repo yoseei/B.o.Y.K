@@ -66,6 +66,15 @@ const MarkDown: React.FC<RouteComponentProps> = (props) => {
           <div className={scss.mde}>
             <SimpleMDE onChange={(e) => setMarkdown(e)} />
           </div>
+          <input
+            type="text"
+            value={markdown}
+            style={{
+              position: "absolute",
+              left: "-50%",
+            }}
+            {...register("blogContent", { required: true })}
+          />
           <div id="body" className={scss.preview}>
             <span dangerouslySetInnerHTML={{ __html: marked(markdown) }} />
           </div>
