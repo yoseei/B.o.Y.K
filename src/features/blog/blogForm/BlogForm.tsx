@@ -50,7 +50,6 @@ const BlogForm: React.FC<RouteComponentProps> = (props) => {
               label="タイトル"
               variant="outlined"
               {...register("blogTitle", { required: true })}
-              className={scss.text_field}
             />
           </div>
           <div className={scss.content_wrapper}>
