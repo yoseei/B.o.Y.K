@@ -1,14 +1,16 @@
 .root {
   height: 100%;
+  .form {
+    height: 100%;
+  }
   .title_wrapper {
-    height: 100%px;
     input {
       text-indent: 10px;
       font-size: 1.5rem;
       height: 100%;
       width: 100%;
       border: none;
-      padding: 0;
+      padding: 10px 0;
       margin: 0;
       border: 1px solid rgba(0, 0, 0, 0.2);
       border-radius: 5px;
@@ -21,15 +23,14 @@
     overflow: auto;
     box-sizing: content-box;
     gap: 1px;
-    margin-top: 3px;
     .mde {
       flex: 1;
-      font-size: 1rem;
+      font-size: 1.5rem;
       overflow: auto;
     }
     .preview {
       flex: 1;
-      font-size: 1rem;
+      font-size: 1.5rem;
       padding: 20px 40px;
       background-color: white;
       overflow: auto;
@@ -37,8 +38,17 @@
       border-radius: 5px;
     }
   }
-}
-
-.editor-statusbar {
-  background: red;
+  .button {
+    font-size: 1.25rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 150px;
+    height: 45px;
+    transition: all 0.5s;
+    &:hover {
+      background-color: cornflowerblue;
+      color: aliceblue;
+    }
+  }
 }
