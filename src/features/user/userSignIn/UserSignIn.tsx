@@ -10,24 +10,40 @@ import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import { useForm } from "react-hook-form";
 import { fetchUser, signInUser } from "../userSlice";
+import scss from "./UserSignIn.module.scss";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(25),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
   },
   form: {
     width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
+  admin: {
+    background: "#98DDCA",
+    margin: theme.spacing(5, 0, 3),
+    fontSize: "1.25rem",
+    "&:hover": {
+      background: "#98DDCA",
+      opacity: 0.8,
+    },
+  },
+  guest: {
+    background: "#FFAAA7",
+    fontSize: "1.25rem",
+    "&:hover": {
+      background: "#FFAAA7",
+      opacity: 0.8,
+    },
+  },
+  textField: {
+    "&:focus": {
+      borderBottom: "1px solid red",
+    },
   },
 }));
 
@@ -82,7 +98,7 @@ const UserSignIn: React.FC<RouteComponentProps> = (props) => {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h4">
           ログイン
         </Typography>
         <form
@@ -90,7 +106,7 @@ const UserSignIn: React.FC<RouteComponentProps> = (props) => {
           onSubmit={handleSubmit(handleAdminSignIn)}
         >
           <TextField
-            variant="outlined"
+            variant="standard"
             margin="normal"
             required
             fullWidth
@@ -106,7 +122,8 @@ const UserSignIn: React.FC<RouteComponentProps> = (props) => {
             })}
           />
           <TextField
-            variant="outlined"
+            className={classes.textField}
+            variant="standard"
             margin="normal"
             required
             fullWidth
@@ -125,7 +142,7 @@ const UserSignIn: React.FC<RouteComponentProps> = (props) => {
             fullWidth
             variant="contained"
             color="primary"
-            className={classes.submit}
+            className={classes.admin}
           >
             管理者としてログインする
           </Button>
@@ -134,7 +151,7 @@ const UserSignIn: React.FC<RouteComponentProps> = (props) => {
             fullWidth
             variant="contained"
             color="secondary"
-            className={classes.submit}
+            className={classes.guest}
             onClick={handleGuestSignIn}
           >
             ゲストとしてログインする

@@ -79,7 +79,9 @@ const BlogDetail: React.FC<RouteComponentProps> = (props) => {
         {userEmail ? (
           <>
             <div className={scss.edit}>
-              <button onClick={handleLinkTop}>戻る</button>
+              <button onClick={handleLinkTop} className={scss.back}>
+                戻る
+              </button>
             </div>
           </>
         ) : (
