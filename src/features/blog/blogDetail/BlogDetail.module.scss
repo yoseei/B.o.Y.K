@@ -2,14 +2,15 @@
   flex: 1;
   .contents_container {
     width: 60%;
-    height: 250px;
-    margin: 50px auto;
+    height: 70vh;
+    margin: 50px auto 25px;
     background-color: aliceblue;
+    overflow: auto;
     .title_wrapper {
       padding-top: 10px;
       text-align: center;
       .title {
-        font-size: 2.25rem;
+        font-size: 4rem;
       }
     }
     .updateDate_wrapper {

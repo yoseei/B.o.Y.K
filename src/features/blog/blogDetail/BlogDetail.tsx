@@ -72,7 +72,12 @@ const BlogDetail: React.FC<RouteComponentProps> = (props) => {
           </div>
         </div>
         <div className={scss.text_wrapper}>
-          <p>{selectedBlogData.content}</p>
+          {/* <p>{selectedBlogData.content}</p> */}
+          <span
+            dangerouslySetInnerHTML={{
+              __html: selectedBlogData.content,
+            }}
+          />
         </div>
       </div>
       <div className={scss.button_wrapper}>

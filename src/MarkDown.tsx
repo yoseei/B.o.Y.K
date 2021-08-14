@@ -43,7 +43,7 @@ const MarkDown: React.FC<RouteComponentProps> = (props) => {
     await dispatch(
       createBlog({
         title: data.blogTitle,
-        content: markdown,
+        content: marked(markdown),
         createDate: currentDate,
       })
     );
