@@ -30,18 +30,20 @@ const date = DD.getDate();
 const currentDate = `${year}/${month}/${date}`;
 
 const MarkDown: React.FC<RouteComponentProps> = (props) => {
-  const dispatch: AppDispatch = useDispatch();
-
   const [markdown, setMarkdown] = useState("");
-  const { register, handleSubmit, reset } = useForm();
+  const dispatch: AppDispatch = useDispatch();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
 
   const handleCreate = async (data: Inputs) => {
-    console.log(data);
-
     await dispatch(
       createBlog({
         title: data.blogTitle,
-        content: data.blogContent,
+        content: markdown,
         createDate: currentDate,
       })
     );
@@ -49,10 +51,11 @@ const MarkDown: React.FC<RouteComponentProps> = (props) => {
     await dispatch(fetchBlogs());
     props.history.push("/");
   };
+
   return (
     <div className={scss.root}>
       <form
-        action=""
+        // action=""
         className={scss.form}
         onSubmit={handleSubmit(handleCreate)}
       >
@@ -68,15 +71,6 @@ const MarkDown: React.FC<RouteComponentProps> = (props) => {
           <div className={scss.mde}>
             <SimpleMDE onChange={(e) => setMarkdown(e)} />
           </div>
-          <input
-            type="text"
-            value={markdown}
-            style={{
-              position: "absolute",
-              left: "-50%",
-            }}
-            {...register("blogContent", { required: true })}
-          />
 
           <div id="body" className={scss.preview}>
             <span
