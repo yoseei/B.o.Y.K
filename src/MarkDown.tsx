@@ -36,6 +36,8 @@ const MarkDown: React.FC<RouteComponentProps> = (props) => {
   const { register, handleSubmit, reset } = useForm();
 
   const handleCreate = async (data: Inputs) => {
+    console.log(data);
+
     await dispatch(
       createBlog({
         title: data.blogTitle,
@@ -57,7 +59,7 @@ const MarkDown: React.FC<RouteComponentProps> = (props) => {
         <div className={scss.title_wrapper}>
           <input
             type="text"
-            defaultValue=""
+            // defaultValue=""
             placeholder="タイトル"
             {...register("blogTitle", { required: true })}
           />
@@ -75,8 +77,13 @@ const MarkDown: React.FC<RouteComponentProps> = (props) => {
             }}
             {...register("blogContent", { required: true })}
           />
+
           <div id="body" className={scss.preview}>
-            <span dangerouslySetInnerHTML={{ __html: marked(markdown) }} />
+            <span
+              dangerouslySetInnerHTML={{
+                __html: marked(markdown),
+              }}
+            />
           </div>
         </div>
         <button
