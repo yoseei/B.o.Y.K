@@ -91,11 +91,13 @@
 
 @media screen and (max-width: 1024px) {
   .root {
+    height: 100vh;
+    overflow: auto;
     .contents_container {
       width: 80%;
       .title_wrapper {
         .title {
-          font-size: 3rem;
+          font-size: 2.75rem;
         }
       }
       .text_wrapper {
@@ -106,6 +108,7 @@
     }
   }
 }
+
 @media screen and (max-width: 768px) {
   .root {
     .contents_container {
