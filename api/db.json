@@ -24,92 +24,47 @@
     },
     {
       "id": 3,
-      "title": "test",
-      "content": "<h1 id=\"test\">test</h1>\n<hr>\n",
-      "createDate": "2021/8/14",
-      "updateDate": "2021/8/14",
+      "title": "aaaaaaaaaaaa",
+      "content": "<p>aaaaaaaaaa<br>aaaaaaaaaaaaaaaaa<br>aaaaaaaaaaaaaaaaaaaa</p>\n<p>aaaaaaaa</p>\n<p>sgafd</p>\n<p>aaadddddfda</p>\n",
+      "createDate": "2021/8/15",
+      "updateDate": "2021/8/15",
       "likes": 0,
       "completed": false
     },
     {
       "id": 4,
-      "title": "fdsafsad",
-      "content": "[object Object]",
-      "createDate": "2021/8/14",
-      "updateDate": "2021/8/14",
+      "title": "aaaaaa",
+      "content": "<p>aaaaaaaaaaaaa<br>aaaaaaaaaaaaaaaaaa<br>aaaaaaaaaaaaaaaaa<br><br><br>aaaaaaaaaaaa<br>aaaaaaaaaaaaaaaaaaaa<br>aaaaaaaaaaaaaaaaaaaaaaaa<br>aaaaaaaaaaaaaaaaaaa</p>\n",
+      "createDate": "2021/8/15",
+      "updateDate": "2021/8/15",
       "likes": 0,
       "completed": false
     },
     {
       "id": 5,
-      "title": "てす！",
-      "content": "[object Object]",
-      "createDate": "2021/8/14",
-      "updateDate": "2021/8/14",
+      "title": "ああああああああああああああああ",
+      "content": "<p>あああああああああああああああああああああああ<br>あああああああああああああああ<br>あああああああああああああああああああああああ<br>あああああああああああああああ<br><br><br>あああああああああああ<br>ああああああああああああああああ</p>\n",
+      "createDate": "2021/8/15",
+      "updateDate": "2021/8/15",
       "likes": 0,
       "completed": false
     },
     {
       "id": 6,
       "title": "test",
-      "content": "<h1 id=\"test\">test</h1>\n<hr>\n<ul>\n<li>afd</li>\n<li>fads</li>\n<li>ffda</li>\n<li>fsdaf</li>\n<li>df</li>\n<li>a</li>\n</ul>\n",
-      "createDate": "2021/8/14",
-      "updateDate": "2021/8/14",
-      "likes": 0,
-      "completed": false
-    },
-    {
-      "id": 7,
-      "title": "やっと新規投稿が出来た",
-      "content": "<h1 id=\"長い道のりでした\">長い道のりでした</h1>\n<hr>\n<ul>\n<li>a</li>\n<li>aa</li>\n<li>aaa</li>\n<li>adsd</li>\n<li>ffsdfa</li>\n<li>fsadfdsf</li>\n<li>fdafdsafadsf</li>\n<li>dfsafdasfasdfsadf</li>\n<li>fdfadfasdfasdfasdfadf</li>\n</ul>\n<img width=\"1440\" alt=\"スクリーンショット 2021-08-14 15 11 20\" src=\"https://user-images.githubusercontent.com/71750637/129449801-95faba3f-6c7b-46e4-b8ba-df1d93491a65.png\">\n\n\n<p><a href=\"https://www.youtube.com/watch?v=0vdywkbK3XY\">youtube</a></p>\n<p>aaaaa<br>aaa</p>\n",
-      "createDate": "2021/8/14",
-      "updateDate": "2021/8/14",
-      "likes": 0,
-      "completed": false
-    },
-    {
-      "id": 8,
-      "title": "画像サイズ調整について",
-      "content": "<h1 id=\"出来たかな\">出来たかな</h1>\n<hr>\n<img width=\"800\" alt=\"画像\" src=\"https://user-images.githubusercontent.com/71750637/129449801-95faba3f-6c7b-46e4-b8ba-df1d93491a65.png\">\n",
-      "createDate": "2021/8/14",
-      "updateDate": "2021/8/14",
-      "likes": 0,
-      "completed": false
-    },
-    {
-      "id": 9,
-      "title": "改行テスト",
-      "content": "<p>test<br><br><br>test<br><br><br>test<br><br><br><br><br><br><br>test</p>\n",
-      "createDate": "2021/8/14",
-      "updateDate": "2021/8/14",
-      "likes": 0,
-      "completed": false
-    },
-    {
-      "id": 10,
-      "title": "改行テスト２",
-      "content": "<p>テスト<br>テスト<br>テスト<br><br><br>テスト<br>テスト<br>テスト<br><br><br><br><br>テスト<br>テスト<br>テスト<br><br><br><br><br>テスト<br>テスト</p>\n",
-      "createDate": "2021/8/14",
-      "updateDate": "2021/8/14",
-      "likes": 0,
-      "completed": false
-    },
-    {
-      "id": 11,
-      "title": "テスト",
-      "content": "<p>テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト<br><br><br>テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト<br><br><br><br><br>テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト</p>\n",
-      "createDate": "2021/8/14",
-      "updateDate": "2021/8/14",
+      "content": "<h1 id=\"test\">test</h1>\n<hr>\n<p>test</p>\n",
+      "createDate": "2021/8/15",
+      "updateDate": "2021/8/15",
       "likes": 0,
       "completed": false
     }
   ],
   "selectedBlog": {
-    "id": 11,
-    "title": "テスト",
-    "content": "<p>テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト<br><br><br>テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト<br><br><br><br><br>テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト</p>\n",
-    "createDate": "2021/8/14",
-    "updateDate": "2021/8/14",
+    "id": 6,
+    "title": "test",
+    "content": "<h1 id=\"test\">test</h1>\n<hr>\n<p>test</p>\n",
+    "createDate": "2021/8/15",
+    "updateDate": "2021/8/15",
     "likes": 0,
     "completed": false
   }

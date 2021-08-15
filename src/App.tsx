@@ -19,6 +19,7 @@ import {
 import { useDispatch } from "react-redux";
 import { fetchUser } from "./features/user/userSlice";
 import MarkDown from "./MarkDown";
+import BlogCreate from "./features/blog/blogCreate/BlogCreate";
 
 const App: React.FC<RouteComponentProps> = (props) => {
   const dispatch: AppDispatch = useDispatch();
@@ -49,7 +50,7 @@ const App: React.FC<RouteComponentProps> = (props) => {
             <Route path="/detail/:id" component={BlogDetail} />
             <Route exact path="/" component={BlogList} />
 
-            <Route exact path="/create" component={MarkDown} />
+            <Route exact path="/create" component={BlogCreate} />
           </Switch>
         </div>
         <Footer />
