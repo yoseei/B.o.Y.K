@@ -1,7 +1,7 @@
 {
   "userData": {
-    "email": "",
-    "password": ""
+    "email": "guest@example.com",
+    "password": "password"
   },
   "blogs": [
     {
@@ -69,21 +69,21 @@
     },
     {
       "id": 9,
-      "title": "gafdgaffdsaf",
-      "content": "<p>fsdfasdf</p>\n",
+      "title": "テスト投稿です",
+      "content": "<h1 id=\"テスト\">テスト</h1>\n<hr>\n<p>fdsfa<br>fdsa<br>fsd<br>fsdafa<br>dsfa<br>dfasd<br>fdsaf<br>adf<br>sadf<br>sdf<br>adsfa<br>sdfsa<br>df<br>sadf<br>sdf<br>adsf<br>dsaf<br>sadf<br>sadf</p>\n<p>f<br>dasfas<br>dfsd<br>fds<br>fsd<br>fsa<br>df<br>sadf<br>asdf<br>asdf<br>asdf<br>sadf<br>dsf<br>dsf<br>sadf<br>dsf<br>adsf<br>adsf<br>ds<br>fsda<br>fasd<br>fds<br>f</p>\n",
       "createDate": "2021/8/15",
       "updateDate": "2021/8/15",
-      "likes": 0,
+      "likes": 1,
       "completed": false
     }
   ],
   "selectedBlog": {
-    "id": 2,
-    "title": "技術用ブログとして運用",
-    "content": "",
+    "id": 9,
+    "title": "テスト投稿です",
+    "content": "<h1 id=\"テスト\">テスト</h1>\n<hr>\n<p>fdsfa<br>fdsa<br>fsd<br>fsdafa<br>dsfa<br>dfasd<br>fdsaf<br>adf<br>sadf<br>sdf<br>adsfa<br>sdfsa<br>df<br>sadf<br>sdf<br>adsf<br>dsaf<br>sadf<br>sadf</p>\n<p>f<br>dasfas<br>dfsd<br>fds<br>fsd<br>fsa<br>df<br>sadf<br>asdf<br>asdf<br>asdf<br>sadf<br>dsf<br>dsf<br>sadf<br>dsf<br>adsf<br>adsf<br>ds<br>fsda<br>fasd<br>fds<br>f</p>\n",
     "createDate": "2021/8/15",
     "updateDate": "2021/8/15",
-    "likes": 5,
+    "likes": 1,
     "completed": false
   }
 }
