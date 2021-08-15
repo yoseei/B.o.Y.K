@@ -45,3 +45,34 @@
     }
   }
 }
+
+@media screen and(max-width: 425px) {
+  .root {
+    .container {
+      padding: 10px 10px;
+    }
+  }
+}
+@media screen and(max-width: 320px) {
+  .root {
+    .container {
+      padding: 10px 10px;
+      .title_wrapper {
+        a {
+          font-size: 1.2rem;
+        }
+      }
+      .createPost_signOut_wrapper {
+        gap: 10px;
+        .createPost {
+          a {
+            font-size: 1rem;
+          }
+        }
+        .signOut {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}

@@ -81,7 +81,7 @@ const BlogDetail: React.FC<RouteComponentProps> = (props) => {
       <div className={scss.button_wrapper}>
         {userEmail ? (
           <>
-            <div className={scss.edit}>
+            <div className={scss.back}>
               <button onClick={handleLinkTop} className={scss.back}>
                 戻る
               </button>

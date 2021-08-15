@@ -2,58 +2,109 @@
   height: 100%;
   .form {
     height: 100%;
-  }
-  .title_wrapper {
-    input {
-      text-indent: 10px;
-      font-size: 1.5rem;
+    .title_wrapper {
+      input {
+        text-indent: 10px;
+        font-size: 1.5rem;
+        height: 100%;
+        width: 100%;
+        border: none;
+        padding: 10px 0;
+        margin: 0;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+      }
+    }
+    .mde_container {
+      display: flex;
+      flex: 1;
       height: 100%;
-      width: 100%;
+      overflow: auto;
+      box-sizing: content-box;
+      gap: 1px;
+      .mde {
+        flex: 1;
+        font-size: 1.5rem;
+        overflow: auto;
+      }
+      .preview {
+        flex: 1;
+        font-size: 1.5rem;
+        padding: 20px 40px;
+        background-color: white;
+        overflow: auto;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+      }
+    }
+    .button {
+      color: rgb(45, 45, 45);
+      font-size: 1.25rem;
+      background-color: #f38ba0;
+      position: fixed;
+      bottom: 0px;
+      right: 50px;
+      width: 150px;
+      height: 55px;
+      transition: all 0.3s;
+      border-radius: 5px;
       border: none;
-      padding: 10px 0;
-      margin: 0;
-      border: 1px solid rgba(0, 0, 0, 0.2);
-      border-radius: 5px;
+      cursor: pointer;
+      &:hover {
+        background-color: #ffbcbc;
+      }
     }
   }
-  .mde_container {
-    display: flex;
-    flex: 1;
-    height: 100%;
-    overflow: auto;
-    box-sizing: content-box;
-    gap: 1px;
-    .mde {
-      flex: 1;
-      font-size: 1.5rem;
-      overflow: auto;
-    }
-    .preview {
-      flex: 1;
-      font-size: 1.5rem;
-      padding: 20px 40px;
-      background-color: white;
-      overflow: auto;
-      border: 1px solid rgba(0, 0, 0, 0.2);
-      border-radius: 5px;
-    }
-  }
-  .button {
-    color: rgb(45, 45, 45);
-    font-size: 1.25rem;
-    background-color: #f38ba0;
+}
 
-    position: absolute;
-    bottom: 0px;
-    right: 50px;
-    width: 150px;
-    height: 55px;
-    transition: all 0.3s;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    &:hover {
-      background-color: #ffbcbc;
+@media screen and (max-width: 425px) {
+  .root {
+    .form {
+      .mde_container {
+        flex-direction: column;
+        max-height: 100vh;
+        .mde {
+          font-size: 1rem;
+        }
+        .preview {
+          padding: 10px;
+          font-size: 1rem;
+        }
+      }
+      .button {
+        padding: 0;
+        position: fixed;
+        right: 20px;
+        font-size: 1rem;
+        width: 100px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .root {
+    .form {
+      .title_wrapper {
+        input {
+          font-size: 1.25rem;
+        }
+      }
+      .mde_container {
+        .mde {
+          font-size: 0.9rem;
+        }
+        .preview {
+          font-size: 0.9rem;
+        }
+      }
+      .button {
+        // position: fixed;
+        right: 10px;
+        font-size: 0.9rem;
+        width: 80px;
+        height: 50px;
+      }
     }
   }
 }

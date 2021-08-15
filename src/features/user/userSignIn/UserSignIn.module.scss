@@ -1,0 +1,37 @@
+.root {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  .container {
+    margin: 0 auto;
+  }
+}
+
+@media screen and(max-width: 425px) {
+  .root {
+    padding: 35px;
+  }
+}
+@media screen and(max-width: 375px) {
+  .root {
+    padding: 35px;
+    .container {
+      .admin,
+      .guest {
+        font-size: 1.15rem;
+      }
+    }
+  }
+}
+@media screen and(max-width: 320px) {
+  .root {
+    padding: 35px;
+    .container {
+      .admin,
+      .guest {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}

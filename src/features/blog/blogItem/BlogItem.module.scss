@@ -43,3 +43,41 @@
     text-align: center;
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .root {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 425px) {
+  .root {
+    font-size: 1rem;
+    .id {
+      margin-left: 5px;
+    }
+    .title {
+      width: 100%;
+    }
+    .createDate,
+    .updateDate,
+    .like {
+      display: none;
+    }
+  }
+}
+@media screen and (max-width: 320px) {
+  .root {
+    font-size: 1rem;
+    .id {
+      margin-left: 10px;
+    }
+    .title {
+      width: 100%;
+    }
+    .createDate,
+    .updateDate,
+    .like {
+      display: none;
+    }
+  }
+}

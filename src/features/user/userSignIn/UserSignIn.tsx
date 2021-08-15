@@ -14,7 +14,7 @@ import scss from "./UserSignIn.module.scss";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(25),
+    // marginTop: theme.spacing(0),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -41,9 +41,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   textField: {
-    "&:focus": {
-      borderBottom: "1px solid red",
-    },
+    height: "2rem",
+    fontFamily: "M PLUS Rounded 1c, sans-serif",
+  },
+  resize: {
+    fontSize: 50,
   },
 }));
 
@@ -95,70 +97,82 @@ const UserSignIn: React.FC<RouteComponentProps> = (props) => {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Typography component="h1" variant="h4">
-          ログイン
-        </Typography>
-        <form
-          className={classes.form}
-          onSubmit={handleSubmit(handleAdminSignIn)}
-        >
-          <TextField
-            variant="standard"
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="メールアドレス"
-            autoComplete="email"
-            autoFocus
-            error={Boolean(errors.email)}
-            helperText={errors.email && errors.email.message}
-            {...register("email", {
-              required: true,
-              pattern: /^\S+@\S+$/i,
-            })}
-          />
-          <TextField
-            className={classes.textField}
-            variant="standard"
-            margin="normal"
-            required
-            fullWidth
-            label="パスワード"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-            {...register("password", {
-              required: true,
-              minLength: 6,
-            })}
-          />
+    <div className={scss.root}>
+      <div className={scss.container}>
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
+          <div className={classes.paper}>
+            <Typography component="h1" variant="h4">
+              ログイン
+            </Typography>
+            <form
+              className={classes.form}
+              onSubmit={handleSubmit(handleAdminSignIn)}
+            >
+              <TextField
+                className={classes.textField}
+                inputProps={{ style: { fontSize: 20 } }}
+                variant="standard"
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label="メールアドレス"
+                autoComplete="email"
+                autoFocus
+                error={Boolean(errors.email)}
+                helperText={errors.email && errors.email.message}
+                {...register("email", {
+                  required: true,
+                  pattern: /^\S+@\S+$/i,
+                })}
+              />
+              <TextField
+                className={classes.textField}
+                inputProps={{
+                  style: {
+                    fontSize: 20,
+                    fontFamily: "M PLUS Rounded 1c, sans-serif",
+                  },
+                }}
+                variant="standard"
+                margin="normal"
+                required
+                fullWidth
+                label="パスワード"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+                {...register("password", {
+                  required: true,
+                  minLength: 6,
+                })}
+              />
 
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.admin}
-          >
-            管理者としてログインする
-          </Button>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="secondary"
-            className={classes.guest}
-            onClick={handleGuestSignIn}
-          >
-            ゲストとしてログインする
-          </Button>
-        </form>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.admin}
+              >
+                <span className={scss.admin}>管理者としてログインする</span>
+              </Button>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="secondary"
+                className={classes.guest}
+                onClick={handleGuestSignIn}
+              >
+                <span className={scss.guest}>ゲストとしてログインする</span>
+              </Button>
+            </form>
+          </div>
+        </Container>
       </div>
-    </Container>
+    </div>
   );
 };
 

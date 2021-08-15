@@ -35,7 +35,7 @@ const DeleteModal = () => {
   };
 
   const body = (
-    <div className={scss.body_container}>
+    <div className={scss.root}>
       <div className={scss.confirm_wrapper}>
         <p className={scss.confirm}>本当に削除してもよろしいですか？</p>
       </div>

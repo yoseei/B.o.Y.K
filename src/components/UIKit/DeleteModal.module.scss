@@ -1,4 +1,4 @@
-.body_container {
+.root {
   width: 450px;
   height: 250px;
   background-color: aliceblue;
@@ -49,5 +49,27 @@
     .cancel {
       margin: 0 auto;
     }
+  }
+}
+
+@media screen and(max-width: 768px) {
+  .root {
+    width: 400px;
+    height: 200px;
+  }
+}
+
+@media screen and(max-width: 425px) {
+  .root {
+    width: 320px;
+    height: 180px;
+    font-size: 1.1rem;
+  }
+}
+@media screen and(max-width: 768px) {
+  .root {
+    width: 280px;
+    height: 150px;
+    font-size: 0.9rem;
   }
 }

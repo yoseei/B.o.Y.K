@@ -61,3 +61,54 @@
     }
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .root {
+    .lists_container {
+      .header {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}
+@media screen and (max-width: 425px) {
+  .root {
+    .lists_container {
+      margin: 40px auto;
+      width: 90%;
+      .header {
+        font-size: 0.8rem;
+        .title {
+          width: 100%;
+        }
+        .createDate,
+        .updateDate,
+        .like {
+          display: none;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 425px) {
+  .root {
+    .lists_container {
+      margin: 40px auto;
+      width: 90%;
+      .header {
+        font-size: 0.8rem;
+        .id {
+          margin-left: 10px;
+        }
+        .title {
+          width: 100%;
+        }
+        .createDate,
+        .updateDate,
+        .like {
+          display: none;
+        }
+      }
+    }
+  }
+}

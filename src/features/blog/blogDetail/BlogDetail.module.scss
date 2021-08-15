@@ -48,6 +48,11 @@
       width: 80%;
       margin: 0 auto;
       font-size: 1.5rem;
+      span {
+        img {
+          max-width: 100%;
+        }
+      }
     }
   }
   .button_wrapper {
@@ -79,6 +84,97 @@
       transition: all 0.3s;
       &:hover {
         opacity: 0.8;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .root {
+    .contents_container {
+      width: 80%;
+      .title_wrapper {
+        .title {
+          font-size: 3rem;
+        }
+      }
+      .text_wrapper {
+        width: 80%;
+        margin: 0 auto;
+        font-size: 1.25rem;
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .root {
+    .contents_container {
+      width: 80%;
+      .title_wrapper {
+        .title {
+          font-size: 2rem;
+        }
+      }
+      .updateDate_likes_wrapper {
+        p {
+          font-size: 1rem;
+        }
+      }
+      .text_wrapper {
+        width: 80%;
+        margin: 0 auto;
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .root {
+    .contents_container {
+      width: 90%;
+      .title_wrapper {
+        .title {
+          font-size: 1.6rem;
+        }
+      }
+      .updateDate_likes_wrapper {
+        p {
+          font-size: 0.8rem;
+        }
+      }
+      .text_wrapper {
+        font-size: 0.9rem;
+      }
+    }
+    .button_wrapper {
+      gap: 10px;
+      .back,
+      .edit,
+      .delete {
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .root {
+    .contents_container {
+      .title_wrapper {
+        .title {
+          font-size: 1.4rem;
+        }
+      }
+    }
+    .button_wrapper {
+      gap: 10px;
+      .back,
+      .edit,
+      .delete {
+        font-size: 1rem;
+        width: 100px;
+        height: 45px;
       }
     }
   }

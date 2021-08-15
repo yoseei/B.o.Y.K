@@ -1,7 +1,7 @@
 {
   "userData": {
-    "email": "guest@example.com",
-    "password": "password"
+    "email": "hoge@hoge.com",
+    "password": "hogehoge"
   },
   "blogs": [
     {
@@ -10,7 +10,7 @@
       "content": "<h1 id=\"はじめに\">はじめに</h1>\n<hr>\n<p>私が遭遇したエラーや、その解決方法について記録を残していこうと思います。</p>\n\n",
       "createDate": "2021/8/15",
       "updateDate": "2021/8/15",
-      "likes": 3,
+      "likes": 4,
       "completed": false
     },
     {
@@ -29,16 +29,16 @@
       "createDate": "2021/8/15",
       "updateDate": "2021/8/15",
       "likes": 2,
-      "completed": false
+      "completed": true
     }
   ],
   "selectedBlog": {
-    "id": 4,
-    "title": "テスト投稿",
-    "content": "<h1 id=\"aaa\">aaa</h1>\n<h2 id=\"bbb\">bbb</h2>\n<h3 id=\"ccc\">ccc</h3>\n<h4 id=\"dddd\">dddd</h4>\n<h5 id=\"eeeee\">eeeee</h5>\n",
+    "id": 2,
+    "title": "技術用ブログとして運用",
+    "content": "<h1 id=\"はじめに\">はじめに</h1>\n<hr>\n<p>私が遭遇したエラーや、その解決方法について記録を残していこうと思います。</p>\n\n",
     "createDate": "2021/8/15",
     "updateDate": "2021/8/15",
-    "likes": 2,
+    "likes": 4,
     "completed": false
   }
 }

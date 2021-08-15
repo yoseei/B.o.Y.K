@@ -8,3 +8,11 @@
     color: rgb(45, 45, 45);
   }
 }
+
+@media screen and (max-width: 320px) {
+  .root {
+    p {
+      height: 50px;
+    }
+  }
+}

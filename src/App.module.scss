@@ -10,3 +10,11 @@
     padding: 1px;
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .root {
+    .main {
+      overflow: unset;
+    }
+  }
+}

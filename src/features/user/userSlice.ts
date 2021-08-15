@@ -21,7 +21,6 @@ export const signInUser = createAsyncThunk("user/signInUser", async({email, pass
     email: email,
     password: password,
   }
-
   await axios.put("http://localhost:3001/userData", userData)
 })
 
