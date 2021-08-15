@@ -11,14 +11,13 @@ import {
 } from "../blogSlice";
 import { selectUserData } from "../../user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { RouteComponentProps, useHistory } from "react-router";
+import { RouteComponentProps } from "react-router";
 
 const BlogDetail: React.FC<RouteComponentProps> = (props) => {
   const selectedBlogData = useSelector(selectSelectedBlog);
   const [likes, setLikes] = useState<number>(selectedBlogData.likes);
 
   const dispatch: AppDispatch = useDispatch();
-  const history = useHistory();
   const isModalOpen = useSelector(selectIsModalOpen);
   const userData = useSelector(selectUserData);
   const userEmail = userData.email === "guest@example.com";
@@ -41,7 +40,7 @@ const BlogDetail: React.FC<RouteComponentProps> = (props) => {
   };
 
   const handleLinkTop = async () => {
-    // await dispatch(fetchBlogs());
+    await dispatch(fetchBlogs());
     props.history.push("/");
   };
 
@@ -72,7 +71,6 @@ const BlogDetail: React.FC<RouteComponentProps> = (props) => {
           </div>
         </div>
         <div className={scss.text_wrapper}>
-          {/* <p>{selectedBlogData.content}</p> */}
           <span
             dangerouslySetInnerHTML={{
               __html: selectedBlogData.content,

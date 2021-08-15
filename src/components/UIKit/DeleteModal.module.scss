@@ -1,6 +1,6 @@
 .body_container {
-  width: 300px;
-  height: 150px;
+  width: 450px;
+  height: 250px;
   background-color: aliceblue;
   position: absolute;
   top: 50%;
@@ -9,6 +9,7 @@
   display: flex;
   border-radius: 10px;
   flex-direction: column;
+  font-size: 1.25rem;
 
   .confirm_wrapper,
   .delete_wrapper,
@@ -27,15 +28,26 @@
     border-top: 1px solid rgba(0, 0, 0, 0.2);
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     width: 100%;
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover {
+      background-color: #f38ba0;
+    }
     .delete {
-      color: rgb(247, 91, 91);
       margin: 0 auto;
-      cursor: pointer;
     }
   }
   .cancel_wrapper {
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    &:hover {
+      background: #b5eaea;
+    }
     .cancel {
-      cursor: pointer;
+      margin: 0 auto;
     }
   }
 }

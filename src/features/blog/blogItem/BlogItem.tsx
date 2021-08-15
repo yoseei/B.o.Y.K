@@ -26,8 +26,6 @@ type PropTypes = {
 const BlogItem: React.FC<PropTypes> = ({ blog }) => {
   const dispatch: AppDispatch = useDispatch();
   const history = useHistory();
-  const userData = useSelector(selectUserData);
-  const userEmail = userData.email;
 
   const handleLink = async () => {
     await dispatch(createSelectedBlog(blog));

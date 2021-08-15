@@ -39,15 +39,11 @@ const DeleteModal = () => {
       <div className={scss.confirm_wrapper}>
         <p className={scss.confirm}>本当に削除してもよろしいですか？</p>
       </div>
-      <div className={scss.delete_wrapper}>
-        <p className={scss.delete} onClick={handleDelete}>
-          削除する
-        </p>
+      <div className={scss.delete_wrapper} onClick={handleDelete}>
+        <p className={scss.delete}>削除する</p>
       </div>
-      <div className={scss.cancel_wrapper}>
-        <p className={scss.cancel} onClick={handleClose}>
-          キャンセル
-        </p>
+      <div className={scss.cancel_wrapper} onClick={handleClose}>
+        <p className={scss.cancel}>キャンセル</p>
       </div>
     </div>
   );

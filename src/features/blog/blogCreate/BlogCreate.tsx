@@ -54,15 +54,10 @@ const BlogCreate: React.FC<RouteComponentProps> = (props) => {
 
   return (
     <div className={scss.root}>
-      <form
-        // action=""
-        className={scss.form}
-        onSubmit={handleSubmit(handleCreate)}
-      >
+      <form className={scss.form} onSubmit={handleSubmit(handleCreate)}>
         <div className={scss.title_wrapper}>
           <input
             type="text"
-            // defaultValue=""
             placeholder="タイトル"
             {...register("blogTitle", { required: true })}
           />
