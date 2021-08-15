@@ -78,12 +78,12 @@
     }
   ],
   "selectedBlog": {
-    "id": 2,
-    "title": "技術用ブログとして運用",
-    "content": "",
+    "id": 4,
+    "title": "テスト投稿",
+    "content": "<h1 id=\"aaa\">aaa</h1>\n<h2 id=\"bbb\">bbb</h2>\n<h3 id=\"ccc\">ccc</h3>\n<h4 id=\"dddd\">dddd</h4>\n<h5 id=\"eeeee\">eeeee</h5>\n",
     "createDate": "2021/8/15",
     "updateDate": "2021/8/15",
-    "likes": 5,
+    "likes": 2,
     "completed": false
   }
 }
