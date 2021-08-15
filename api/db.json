@@ -78,12 +78,13 @@
     }
   ],
   "selectedBlog": {
-    "id": 9,
-    "title": "テスト投稿です",
-    "content": "<h1 id=\"テスト\">テスト</h1>\n<hr>\n<p>fdsfa<br>fdsa<br>fsd<br>fsdafa<br>dsfa<br>dfasd<br>fdsaf<br>adf<br>sadf<br>sdf<br>adsfa<br>sdfsa<br>df<br>sadf<br>sdf<br>adsf<br>dsaf<br>sadf<br>sadf</p>\n<p>f<br>dasfas<br>dfsd<br>fds<br>fsd<br>fsa<br>df<br>sadf<br>asdf<br>asdf<br>asdf<br>sadf<br>dsf<br>dsf<br>sadf<br>dsf<br>adsf<br>adsf<br>ds<br>fsda<br>fasd<br>fds<br>f</p>\n",
+    "id": 4,
+    "title": "テスト投稿",
+    "content": "<h1 id=\"aaa\">aaa</h1>\n<h2 id=\"bbb\">bbb</h2>\n<h3 id=\"ccc\">ccc</h3>\n<h4 id=\"dddd\">dddd</h4>\n<h5 id=\"eeeee\">eeeee</h5>\n",
     "createDate": "2021/8/15",
     "updateDate": "2021/8/15",
-    "likes": 1,
+    "likes": 2,
+
     "completed": false
   }
 }
