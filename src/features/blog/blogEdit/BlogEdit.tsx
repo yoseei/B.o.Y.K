@@ -11,7 +11,7 @@ import { useForm } from "react-hook-form";
 import marked from "marked";
 import "easymde/dist/easymde.min.css";
 import hljs from "highlight.js";
-import "highlight.js/styles/androidstudio.css";
+import "highlight.js/styles/atom-one-dark.css";
 import SimpleMDE from "react-simplemde-editor";
 
 type Inputs = {
