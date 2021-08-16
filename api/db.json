@@ -1,18 +1,9 @@
 {
   "userData": {
-    "email": "guest@example.com",
-    "password": "password"
+    "email": "hoge@hoge.com",
+    "password": "hogehoge"
   },
   "blogs": [
-    {
-      "id": 2,
-      "title": "技術用ブログとして運用",
-      "content": "",
-      "createDate": "2021/8/15",
-      "updateDate": "2021/8/15",
-      "likes": 5,
-      "completed": false
-    },
     {
       "id": 3,
       "title": "画像投稿テスト",
@@ -25,66 +16,20 @@
     {
       "id": 4,
       "title": "テスト投稿",
-      "content": "<h1 id=\"aaa\">aaa</h1>\n<h2 id=\"bbb\">bbb</h2>\n<h3 id=\"ccc\">ccc</h3>\n<h4 id=\"dddd\">dddd</h4>\n<h5 id=\"eeeee\">eeeee</h5>\n",
-      "createDate": "2021/8/15",
-      "updateDate": "2021/8/15",
-      "likes": 2,
-      "completed": false
-    },
-    {
-      "id": 5,
-      "title": "teqwrwfgadfasfasdfsdfasdf",
-      "content": "<p>rqewqe<br>r<br>qrqr<br>ewr<br>ewqr<br>qwrwe<br>qrew<br>qrewq<br>rwe<br>rewq<br>rewq<br>rqw<br>erew<br>reqw<br>rqwe<br>rqew<br>rqwe<br>reqw<br>rqwe<br>rw<br>er<br>qwer<br>qwer<br>wqer<br>weq<br>r</p>\ndfafsf\nfdaffaf\ndfas\nffd\nafd\nfasdfas\ndsa\nfads\nf\nas\ndfasd\nfads\nfasd\nfas\ndfa\nsdf\nsadf\nasd\nfsad\nfasd\nfsa\ndf\nass\nfa\nf",
-      "createDate": "2021/8/15",
-      "updateDate": "2021/8/15",
+      "content": "<h1 id=\"テスト投稿です\">テスト投稿です</h1>\n<hr>\n<p>テストテストテスト</p>\n<ul>\n<li>a</li>\n<li>a</li>\n<li>a</li>\n<li>a<ul>\n<li>a</li>\n<li>a</li>\n<li>a<ul>\n<li>a</li>\n<li>a</li>\n<li>a</li>\n</ul>\n</li>\n</ul>\n</li>\n</ul>\n<blockquote>\n<p>中央寄せ</p>\n</blockquote>\n<p><code> ハイライト</code></p>\n<pre><code class=\"language-javascript\">&lt;h1&gt;test&lt;/h1&gt;\n  <span class=\"language-xml\"><span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">p</span>&gt;</span>test<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">p</span>&gt;</span></span>\n    <span class=\"language-xml\"><span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">div</span>&gt;</span>test<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">div</span>&gt;</span></span>\n</code></pre>\n",
+      "createDate": "2021/8/16",
+      "updateDate": "2021/8/16",
       "likes": 0,
-      "completed": false
-    },
-    {
-      "id": 6,
-      "title": "aaaa",
-      "content": "<p>aaaaaaa</p>\n",
-      "createDate": "2021/8/15",
-      "updateDate": "2021/8/15",
-      "likes": 0,
-      "completed": false
-    },
-    {
-      "id": 7,
-      "title": "adg",
-      "content": "<p>afdssssss</p>\n",
-      "createDate": "2021/8/15",
-      "updateDate": "2021/8/15",
-      "likes": 0,
-      "completed": false
-    },
-    {
-      "id": 8,
-      "title": "fasdf",
-      "content": "<p>fdsafasf</p>\n",
-      "createDate": "2021/8/15",
-      "updateDate": "2021/8/15",
-      "likes": 0,
-      "completed": false
-    },
-    {
-      "id": 9,
-      "title": "テスト投稿です",
-      "content": "<h1 id=\"テスト\">テスト</h1>\n<hr>\n<p>fdsfa<br>fdsa<br>fsd<br>fsdafa<br>dsfa<br>dfasd<br>fdsaf<br>adf<br>sadf<br>sdf<br>adsfa<br>sdfsa<br>df<br>sadf<br>sdf<br>adsf<br>dsaf<br>sadf<br>sadf</p>\n<p>f<br>dasfas<br>dfsd<br>fds<br>fsd<br>fsa<br>df<br>sadf<br>asdf<br>asdf<br>asdf<br>sadf<br>dsf<br>dsf<br>sadf<br>dsf<br>adsf<br>adsf<br>ds<br>fsda<br>fasd<br>fds<br>f</p>\n",
-      "createDate": "2021/8/15",
-      "updateDate": "2021/8/15",
-      "likes": 1,
       "completed": false
     }
   ],
   "selectedBlog": {
     "id": 4,
     "title": "テスト投稿",
-    "content": "<h1 id=\"aaa\">aaa</h1>\n<h2 id=\"bbb\">bbb</h2>\n<h3 id=\"ccc\">ccc</h3>\n<h4 id=\"dddd\">dddd</h4>\n<h5 id=\"eeeee\">eeeee</h5>\n",
-    "createDate": "2021/8/15",
-    "updateDate": "2021/8/15",
-    "likes": 2,
-
+    "content": "<h1 id=\"テスト投稿です\">テスト投稿です</h1>\n<hr>\n<p>テストテストテスト</p>\n<ul>\n<li>a</li>\n<li>a</li>\n<li>a</li>\n<li>a<ul>\n<li>a</li>\n<li>a</li>\n<li>a<ul>\n<li>a</li>\n<li>a</li>\n<li>a</li>\n</ul>\n</li>\n</ul>\n</li>\n</ul>\n<blockquote>\n<p>中央寄せ</p>\n</blockquote>\n<p><code> ハイライト</code></p>\n<pre><code class=\"language-javascript\">&lt;h1&gt;test&lt;/h1&gt;\n  <span class=\"language-xml\"><span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">p</span>&gt;</span>test<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">p</span>&gt;</span></span>\n    <span class=\"language-xml\"><span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">div</span>&gt;</span>test<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">div</span>&gt;</span></span>\n</code></pre>\n",
+    "createDate": "2021/8/16",
+    "updateDate": "2021/8/16",
+    "likes": 0,
     "completed": false
   }
 }
