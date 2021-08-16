@@ -23,17 +23,17 @@ const App: React.FC<RouteComponentProps> = (props) => {
   const dispatch: AppDispatch = useDispatch();
 
   useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      !user && props.history.push("/signin");
+    });
+  }, []);
+
+  useEffect(() => {
     const getData = async () => {
       await dispatch(fetchBlogs());
       await dispatch(fetchUser());
     };
     getData();
-  }, []);
-
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      !user && props.history.push("/signin");
-    });
   }, []);
 
   return (
