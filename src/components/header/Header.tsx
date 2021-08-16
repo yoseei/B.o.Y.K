@@ -30,16 +30,16 @@ const Header: React.FC = () => {
             <h1>B.o.Y.K</h1>
           </Link>
         </div>
-        {userEmail === "guest@example.com" ? null : (
-          <div className={scss.createPost_signOut_wrapper}>
+        <div className={scss.createPost_signOut_wrapper}>
+          {userEmail === "guest@example.com" ? null : (
             <p className={scss.createPost}>
               <Link to="/create">新規投稿</Link>
             </p>
-            <p onClick={handleSignOut} className={scss.signOut}>
-              ログアウト
-            </p>
-          </div>
-        )}
+          )}
+          <p onClick={handleSignOut} className={scss.signOut}>
+            ログアウト
+          </p>
+        </div>
       </div>
     </div>
   );

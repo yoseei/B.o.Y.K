@@ -1,5 +1,8 @@
 {
-  "userData": {},
+  "userData": {
+    "email": "",
+    "password": ""
+  },
   "blogs": [
     {
       "id": 3,

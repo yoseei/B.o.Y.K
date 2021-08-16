@@ -114,14 +114,14 @@ const UserSignIn: React.FC<RouteComponentProps> = (props) => {
                 inputProps={{ style: { fontSize: 20 } }}
                 variant="standard"
                 margin="normal"
-                required
+                // required
                 fullWidth
                 id="email"
                 label="メールアドレス"
                 autoComplete="email"
                 autoFocus
-                error={Boolean(errors.email)}
-                helperText={errors.email && errors.email.message}
+                // error={Boolean(errors.email)}
+                // helperText={errors.email && errors.email.message}
                 {...register("email", {
                   required: true,
                   pattern: /^\S+@\S+$/i,
@@ -137,7 +137,7 @@ const UserSignIn: React.FC<RouteComponentProps> = (props) => {
                 }}
                 variant="standard"
                 margin="normal"
-                required
+                // required
                 fullWidth
                 label="パスワード"
                 type="password"
