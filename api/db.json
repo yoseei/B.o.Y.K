@@ -25,17 +25,17 @@
       "content": "<p>マークダウンを使うことで、記事を見やすく表示できる。</p>\n<h1 id=\"見出し\">見出し</h1>\n<h2 id=\"見出し-1\">見出し</h2>\n<h3 id=\"見出し-2\">見出し</h3>\n<h4 id=\"見出し-3\">見出し</h4>\n<h5 id=\"見出し-4\">見出し</h5>\n<hr>\n<p>文字の太さ ノーマル</p>\n<p><strong>太文字</strong></p>\n<p><em>斜め</em></p>\n<pre><code class=\"language-javascript\">&lt;h1&gt;テスト&lt;/h1&gt;\n<span class=\"language-xml\"><span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">div</span>&gt;</span>\n  <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">ul</span>&gt;</span>\n      <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">li</span>&gt;</span>リスト<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">li</span>&gt;</span>\n    <span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">ul</span>&gt;</span>\n<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">div</span>&gt;</span></span>\n</code></pre>\n<ul>\n<li>リスト</li>\n<li>リスト<ul>\n<li>リスト</li>\n<li>リスト   </li>\n</ul>\n</li>\n</ul>\n",
       "createDate": "2021/8/18",
       "updateDate": "2021/8/18",
-      "likes": 0,
+      "likes": 3,
       "completed": false
     }
   ],
   "selectedBlog": {
-    "id": 2,
-    "title": "技術ブログとしてのアプリ",
-    "content": "<h1 id=\"今後の運用\">今後の運用</h1>\n<hr>\n<p>今後は、自身のプログラミング技術ブログとして活用していくつもりです。</p>\n<br>\n\n<p>頑張ります！</p>\n<img width=\"500\" alt=\"写真\"  src=\"https://user-images.githubusercontent.com/71750637/129863744-229e1450-38b4-4d2e-bfd8-6d8ff1f75e68.jpg\" />\n",
+    "id": 3,
+    "title": "マークダウンでReadmeを書く",
+    "content": "<p>マークダウンを使うことで、記事を見やすく表示できる。</p>\n<h1 id=\"見出し\">見出し</h1>\n<h2 id=\"見出し-1\">見出し</h2>\n<h3 id=\"見出し-2\">見出し</h3>\n<h4 id=\"見出し-3\">見出し</h4>\n<h5 id=\"見出し-4\">見出し</h5>\n<hr>\n<p>文字の太さ ノーマル</p>\n<p><strong>太文字</strong></p>\n<p><em>斜め</em></p>\n<pre><code class=\"language-javascript\">&lt;h1&gt;テスト&lt;/h1&gt;\n<span class=\"language-xml\"><span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">div</span>&gt;</span>\n  <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">ul</span>&gt;</span>\n      <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">li</span>&gt;</span>リスト<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">li</span>&gt;</span>\n    <span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">ul</span>&gt;</span>\n<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">div</span>&gt;</span></span>\n</code></pre>\n<ul>\n<li>リスト</li>\n<li>リスト<ul>\n<li>リスト</li>\n<li>リスト   </li>\n</ul>\n</li>\n</ul>\n",
     "createDate": "2021/8/18",
     "updateDate": "2021/8/18",
-    "likes": 2,
+    "likes": 3,
     "completed": false
   }
 }
