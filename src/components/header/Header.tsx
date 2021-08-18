@@ -1,22 +1,21 @@
 import React from "react";
 import scss from "./Header.module.scss";
-import { AppDispatch } from "../../app/store";
 import { auth } from "../../firebase";
-import { deleteUserData, selectUserData } from "../../features/user/userSlice";
+import { signOutUser, selectUserData } from "../../features/user/userSlice";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { useHistory } from "react-router";
 
 const Header: React.FC = () => {
-  const dispatch: AppDispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const history = useHistory();
-  const userData = useSelector(selectUserData);
+  const userData = useAppSelector(selectUserData);
   const userEmail = userData.email;
 
   const handleSignOut = async () => {
     try {
       await auth.signOut();
-      await dispatch(deleteUserData());
+      await dispatch(signOutUser());
       history.push("/signin");
     } catch (err) {
       alert(err.message);

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import scss from "./BlogDetail.module.scss";
-import { AppDispatch } from "../../../app/store";
 import DeleteModal from "../../../components/UIKit/DeleteModal";
 import {
   changeLikes,
@@ -10,16 +9,16 @@ import {
   selectSelectedBlog,
 } from "../blogSlice";
 import { selectUserData } from "../../user/userSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import { RouteComponentProps } from "react-router";
 
 const BlogDetail: React.FC<RouteComponentProps> = (props) => {
-  const selectedBlogData = useSelector(selectSelectedBlog);
+  const selectedBlogData = useAppSelector(selectSelectedBlog);
   const [likes, setLikes] = useState<number>(selectedBlogData.likes);
 
-  const dispatch: AppDispatch = useDispatch();
-  const isModalOpen = useSelector(selectIsModalOpen);
-  const userData = useSelector(selectUserData);
+  const dispatch = useAppDispatch();
+  const isModalOpen = useAppSelector(selectIsModalOpen);
+  const userData = useAppSelector(selectUserData);
   const userEmail = userData.email === "guest@example.com";
 
   useEffect(() => {

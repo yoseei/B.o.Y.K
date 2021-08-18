@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import scss from "./BlogCreate.module.scss";
-import { AppDispatch } from "../../../app/store";
 import { createBlog } from "../blogSlice";
-import "easymde/dist/easymde.min.css";
 import { fetchBlogs } from "../blogSlice";
+import { RouteComponentProps } from "react-router-dom";
+import { useAppDispatch } from "../../../app/hooks";
+import { useForm } from "react-hook-form";
+
+import "easymde/dist/easymde.min.css";
 import hljs from "highlight.js";
 import "highlight.js/styles/androidstudio.css";
 import marked from "marked";
-import { RouteComponentProps } from "react-router-dom";
 import SimpleMDE from "react-simplemde-editor";
-import { useDispatch } from "react-redux";
-import { useForm } from "react-hook-form";
 
 type Inputs = {
   blogTitle: string;
@@ -31,7 +31,7 @@ const currentDate = `${year}/${month}/${date}`;
 
 const BlogCreate: React.FC<RouteComponentProps> = (props) => {
   const [markdown, setMarkdown] = useState("");
-  const dispatch: AppDispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const {
     register,
     handleSubmit,

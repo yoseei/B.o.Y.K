@@ -1,11 +1,11 @@
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../../app/hooks";
 import { selectBlogs } from "../blogSlice";
 import scss from "./BlogList.module.scss";
 import Checkbox from "@material-ui/core/Checkbox";
 import BlogItem from "../blogItem/BlogItem";
 
 const BlogList = () => {
-  const blogs = useSelector(selectBlogs);
+  const blogs = useAppSelector(selectBlogs);
 
   return (
     <div className={scss.root}>

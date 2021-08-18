@@ -1,20 +1,18 @@
+import scss from "./UserSignIn.module.scss";
 import { auth } from "../../../firebase";
-import { AppDispatch } from "../../../app/store";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
-import { useDispatch } from "react-redux";
+import { fetchUser, signInUser } from "../userSlice";
 import { makeStyles } from "@material-ui/core/styles";
 import { RouteComponentProps } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import { useForm } from "react-hook-form";
-import { fetchUser, signInUser } from "../userSlice";
-import scss from "./UserSignIn.module.scss";
+import { useAppDispatch } from "../../../app/hooks";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    // marginTop: theme.spacing(0),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -57,7 +55,7 @@ type UserDataTypes = {
 //------  UserSignIn ---------//
 const UserSignIn: React.FC<RouteComponentProps> = (props) => {
   const classes = useStyles();
-  const dispatch: AppDispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const {
     register,

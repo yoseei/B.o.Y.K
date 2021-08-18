@@ -42,7 +42,7 @@ export const fetchUser = createAsyncThunk("user/fetchUser", async() => {
 /* --------------------------------------
             userDataの削除
 -------------------------------------- */
-export const deleteUserData = createAsyncThunk("user/deleteUserData", async() => {
+export const signOutUser = createAsyncThunk("user/signOutUser", async() => {
   const userData = {
     email: "",
     password: "",
@@ -63,7 +63,7 @@ export const userSlice = createSlice({
     builder.addCase(fetchUser.fulfilled, (state, action) => {
       state.userData = action.payload
     })
-    builder.addCase(deleteUserData.fulfilled, (state, action) => {
+    builder.addCase(signOutUser.fulfilled, (state, action) => {
       state.userData = action.payload
     })
   }

@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import scss from "./BlogEdit.module.scss";
-import { AppDispatch } from "../../../app/store";
 import { editBlog, selectSelectedBlog } from "../blogSlice";
 import { fetchBlogs } from "../../blog/blogSlice";
 import { RouteComponentProps } from "react-router-dom";
-import { selectUserData } from "../../user/userSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import { useForm } from "react-hook-form";
 // highlight.js
 import marked from "marked";
@@ -35,10 +33,10 @@ const currentDate = `${year}/${month}/${date}`;
 
 const BlogEdit: React.FC<RouteComponentProps> = (props) => {
   const [markdown, setMarkdown] = useState("");
-  const dispatch: AppDispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { register, handleSubmit, reset } = useForm();
-  const selectedBlogData = useSelector(selectSelectedBlog);
-  const userData = useSelector(selectUserData);
+  const selectedBlogData = useAppSelector(selectSelectedBlog);
+  // const userData = useAppSelector(selectUserData);
 
   const handleEdit = async (data: Inputs) => {
     await dispatch(

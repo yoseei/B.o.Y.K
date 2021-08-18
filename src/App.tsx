@@ -1,26 +1,25 @@
 import React, { useEffect } from "react";
-import { AppDispatch } from "./app/store";
+import scss from "./App.module.scss";
 import { auth } from "./firebase";
+import BlogCreate from "./features/blog/blogCreate/BlogCreate";
 import BlogDetail from "./features/blog/blogDetail/BlogDetail";
 import BlogEdit from "./features/blog/blogEdit/BlogEdit";
 import BlogList from "./features/blog/blogList/BlogList";
-import { fetchBlogs } from "./features/blog/blogSlice";
-import Footer from "./components/footer/Footer";
-import Header from "./components/header/Header";
-import scss from "./App.module.scss";
-import SignIn from "./features/user/userSignIn/UserSignIn";
 import {
-  Switch,
-  Route,
   BrowserRouter,
+  Route,
   RouteComponentProps,
+  Switch,
 } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import Header from "./components/header/Header";
+import { fetchBlogs } from "./features/blog/blogSlice";
 import { fetchUser } from "./features/user/userSlice";
-import BlogCreate from "./features/blog/blogCreate/BlogCreate";
+import Footer from "./components/footer/Footer";
+import SignIn from "./features/user/userSignIn/UserSignIn";
+import { useAppDispatch } from "./app/hooks";
 
 const App: React.FC<RouteComponentProps> = (props) => {
-  const dispatch: AppDispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {

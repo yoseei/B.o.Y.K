@@ -1,10 +1,13 @@
 {
-  "userData": {},
+  "userData": {
+    "email": "",
+    "password": ""
+  },
   "blogs": [
     {
       "id": 1,
       "title": "新規投稿",
-      "content": "<h1 id=\"初投稿\">初投稿</h1>\n<hr>\n<p>アプリ作成後、初めての投稿。</p>\n",
+      "content": "<h1 id=\"初投稿\">初投稿</h1>\n<hr>\n<p>アプリ作成後、初めての投稿。</p>\n<br>\n今後の投稿に乞うご期待。\n",
       "createDate": "2021/8/18",
       "updateDate": "2021/8/18",
       "likes": 1,
@@ -27,15 +30,24 @@
       "updateDate": "2021/8/18",
       "likes": 3,
       "completed": false
+    },
+    {
+      "id": 4,
+      "title": "【VSCode】コードフォーマッターを効かせる",
+      "content": "<p>VSCodeを開いて、<code>SHIFT + option + F</code> を押すと、適用されていない場合はフォーマッタを適用するかどうかのアラームが出てくる。</p>\n<br>\n\n<p>それをOkとすれば、フォーマッタが効いて <code>command + S</code>を押すことで、乱れたコードを整形してくれるようになる。</p>\n<h3 id=\"参考記事\">参考記事</h3>\n<hr>\n<p><a href=\"https://qiita.com/mgmgmogumi/items/17438d45790635bd8dca\">VSCodeでコード整形ツール(Fomatter)を使用する</a></p>\n",
+      "createDate": "2021/8/18",
+      "updateDate": "2021/8/18",
+      "likes": 2,
+      "completed": false
     }
   ],
   "selectedBlog": {
-    "id": 3,
-    "title": "マークダウンでReadmeを書く",
-    "content": "<p>マークダウンを使うことで、記事を見やすく表示できる。</p>\n<h1 id=\"見出し\">見出し</h1>\n<h2 id=\"見出し-1\">見出し</h2>\n<h3 id=\"見出し-2\">見出し</h3>\n<h4 id=\"見出し-3\">見出し</h4>\n<h5 id=\"見出し-4\">見出し</h5>\n<hr>\n<p>文字の太さ ノーマル</p>\n<p><strong>太文字</strong></p>\n<p><em>斜め</em></p>\n<pre><code class=\"language-javascript\">&lt;h1&gt;テスト&lt;/h1&gt;\n<span class=\"language-xml\"><span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">div</span>&gt;</span>\n  <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">ul</span>&gt;</span>\n      <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">li</span>&gt;</span>リスト<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">li</span>&gt;</span>\n    <span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">ul</span>&gt;</span>\n<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">div</span>&gt;</span></span>\n</code></pre>\n<ul>\n<li>リスト</li>\n<li>リスト<ul>\n<li>リスト</li>\n<li>リスト   </li>\n</ul>\n</li>\n</ul>\n",
+    "id": 4,
+    "title": "【VSCode】コードフォーマッターを効かせる",
+    "content": "<p>VSCodeを開いて、<code>SHIFT + option + F</code> を押すと、適用されていない場合はフォーマッタを適用するかどうかのアラームが出てくる。</p>\n<br>\n\n<p>それをOkとすれば、フォーマッタが効いて <code>command + S</code>を押すことで、乱れたコードを整形してくれるようになる。</p>\n<h3 id=\"参考記事\">参考記事</h3>\n<hr>\n<p><a href=\"https://qiita.com/mgmgmogumi/items/17438d45790635bd8dca\">VSCodeでコード整形ツール(Fomatter)を使用する</a></p>\n",
     "createDate": "2021/8/18",
     "updateDate": "2021/8/18",
-    "likes": 3,
+    "likes": 2,
     "completed": false
   }
 }

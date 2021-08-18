@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useHistory } from "react-router";
-import { useDispatch, useSelector } from "react-redux";
 import Modal from "@material-ui/core/Modal";
 import scss from "./DeleteModal.module.scss";
 import {
@@ -10,13 +9,14 @@ import {
   selectIsModalOpen,
   selectSelectedBlog,
 } from "../../features/blog/blogSlice";
-import { AppDispatch } from "../../app/store";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+
 const DeleteModal = () => {
   const [open, setOpen] = useState(true);
-  const blogData = useSelector(selectSelectedBlog);
-  const dispatch: AppDispatch = useDispatch();
+  const blogData = useAppSelector(selectSelectedBlog);
+  const dispatch = useAppDispatch();
   const history = useHistory();
-  const isModalOpen = useSelector(selectIsModalOpen);
+  const isModalOpen = useAppSelector(selectIsModalOpen);
 
   const handleClose = () => {
     setOpen(false);

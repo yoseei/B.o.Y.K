@@ -1,6 +1,5 @@
 import React from "react";
 import scss from "./BlogItem.module.scss";
-import { AppDispatch } from "../../../app/store";
 import { Checkbox } from "@material-ui/core";
 import {
   changeCompleted,
@@ -8,8 +7,7 @@ import {
   fetchBlogs,
   fetchSelectedBlog,
 } from "../blogSlice";
-import { selectUserData } from "../../user/userSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch } from "../../../app/hooks";
 import { useHistory } from "react-router-dom";
 
 type PropTypes = {
@@ -24,7 +22,7 @@ type PropTypes = {
   };
 };
 const BlogItem: React.FC<PropTypes> = ({ blog }) => {
-  const dispatch: AppDispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const history = useHistory();
 
   const handleLink = async () => {
